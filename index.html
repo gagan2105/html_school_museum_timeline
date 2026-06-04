@@ -470,59 +470,11 @@
 
     <script>
         // ============================================================
-        // DATA: All Topics with Year/Period (Chronological Order)
+        // DATA: Loaded from API and normalized for the timeline UI
         // ============================================================
-        const allTopics = [
-            // Prehistory - Grade 6
-            { id: 1, title: "Discovery of Fire", subtitle: "Early human innovation", year: "c. 1.7 million years ago", era: "Prehistory", causeEffect: "Cause: Environmental adaptation need. Effect: Allowed cooking, protection from animals, social gathering around fire.", location: "Main Corridor", grade: "Grade 6", color: "#4caf50" },
-            { id: 2, title: "Palaeolithic Age", subtitle: "Stone tools and nomadic life", year: "c. 2 million - 10,000 BCE", era: "Prehistory", causeEffect: "Cause: Need to hunt and process food. Effect: Development of flaked stone tools, cave art, nomadic lifestyle.", location: "Main Corridor", grade: "Grade 6", color: "#8bc34a" },
-            { id: 3, title: "Neolithic Revolution", subtitle: "Beginning of farming", year: "c. 10,000 - 4,000 BCE", era: "Prehistory", causeEffect: "Cause: Climate warming after Ice Age. Effect: Domestication of plants and animals, settled village life.", location: "Main Corridor", grade: "Grade 6", color: "#cddc39" },
-            { id: 4, title: "Invention of Wheel", subtitle: "Transportation revolution", year: "c. 3500 BCE", era: "Ancient", causeEffect: "Cause: Need for efficient transport. Effect: Revolutionized trade, pottery making, and warfare.", location: "Main Corridor", grade: "Grade 6", color: "#cddc39" },
-            { id: 5, title: "Indus Valley Civilisation", subtitle: "Urban planning and trade", year: "c. 2600 - 1900 BCE", era: "Ancient India", causeEffect: "Cause: Surplus agriculture. Effect: Organized cities with drainage systems, trade with Mesopotamia.", location: "Main Corridor", grade: "Grade 6", color: "#8bc34a" },
-            { id: 6, title: "Indus Valley Decline", subtitle: "End of Harappan civilization", year: "c. 1900 - 1300 BCE", era: "Ancient India", causeEffect: "Cause: Climate change, river drying, possible invasion. Effect: Abandonment of cities, migration eastward.", location: "Main Corridor", grade: "Grade 6", color: "#8bc34a" },
-            
-            // Silk Route - Grade 10 context
-            { id: 7, title: "Silk Route Trade", subtitle: "Global connections begin", year: "2nd century BCE - 15th century CE", era: "Global Trade", causeEffect: "Cause: Demand for luxury goods (silk, spices). Effect: Spread of religions (Buddhism, Islam), technologies, and diseases.", location: "Main Corridor", grade: "Grade 10", color: "#ffeb3b" },
-            
-            // Medieval India - Grade 7
-            { id: 8, title: "Arrival of Islam in India", subtitle: "Arab conquest of Sindh", year: "c. 712 CE", era: "Medieval India", causeEffect: "Cause: Arab conquest under Muhammad bin Qasim. Effect: Introduction of Islamic culture, Sufi traditions, new architecture.", location: "Main Corridor", grade: "Grade 7", color: "#ff9800" },
-            { id: 9, title: "Rajput Clans Emerge", subtitle: "Regional kingdoms of North India", year: "8th - 12th century CE", era: "Medieval India", causeEffect: "Cause: Decline of Harsha's empire. Effect: Rise of regional kingdoms, bardic traditions, Rajput valor.", location: "Main Corridor", grade: "Grade 7", color: "#ff9800" },
-            { id: 10, title: "Chola Empire", subtitle: "Brihadeshwara Temple built", year: "c. 1010 CE", era: "Medieval India", causeEffect: "Cause: Chola imperial ambition and devotion to Shiva. Effect: Symbol of Chola power, patronage of bronze sculpture.", location: "Main Corridor", grade: "Grade 7", color: "#ffc107" },
-            { id: 11, title: "Mahmud of Ghazni's Raids", subtitle: "Somnath Temple attacked", year: "1026 CE", era: "Medieval India", causeEffect: "Cause: Mahmud's desire for wealth. Effect: Weakening of temple patronage, long-term memory of invasion.", location: "Main Corridor", grade: "Grade 7", color: "#ff9800" },
-            { id: 12, title: "Delhi Sultanate", subtitle: "Establishment of Muslim rule in Delhi", year: "1206 - 1526 CE", era: "Medieval India", causeEffect: "Cause: Turkic invasions from Central Asia. Effect: Indo-Islamic architecture (Qutub Minar), administrative systems.", location: "Main Corridor", grade: "Grade 7", color: "#ff5722" },
-            { id: 13, title: "Bhakti & Sufi Movements", subtitle: "Kabir, Guru Nanak", year: "15th - 17th century CE", era: "Medieval India", causeEffect: "Cause: Social need for religious reform. Effect: Challenged orthodoxy, promoted equality, Sikhism foundation.", location: "Main Corridor", grade: "Grade 7", color: "#ff5722" },
-            
-            // Mughal Empire - Classroom 7A
-            { id: 14, title: "Babur's Conquest of Delhi", subtitle: "Establishment of Mughal Empire", year: "1526 CE", era: "Mughal Empire", causeEffect: "Cause: Weakness of Ibrahim Lodi, Babur's military skill. Effect: Establishment of Mughal Empire in India, gunpowder warfare.", location: "Classroom 7A", grade: "Grade 7", color: "#9c27b0" },
-            { id: 15, title: "Akbar's Policies", subtitle: "Sulh-i-kul and religious tolerance", year: "1556 - 1605 CE", era: "Mughal Empire", causeEffect: "Cause: Need to unify religiously diverse empire. Effect: Reduced religious persecution, stable administration, Din-i-Ilahi.", location: "Classroom 7A", grade: "Grade 7", color: "#ab47bc" },
-            { id: 16, title: "Taj Mahal Built", subtitle: "Shah Jahan's monument to Mumtaz", year: "1632 - 1653 CE", era: "Mughal Empire", causeEffect: "Cause: Shah Jahan's love for his wife. Effect: Architectural masterpiece, UNESCO World Heritage site.", location: "Classroom 7A", grade: "Grade 7", color: "#ab47bc" },
-            
-            // Colonial India - Grade 8
-            { id: 17, title: "East India Company Founded", subtitle: "British trading company chartered", year: "1600 CE", era: "Colonial India", causeEffect: "Cause: European desire for Indian spices and trade. Effect: Company became political power over time.", location: "Main Corridor", grade: "Grade 8", color: "#2196f3" },
-            { id: 18, title: "Battle of Plassey", subtitle: "Company gains Bengal", year: "1757 CE", era: "Colonial India", causeEffect: "Cause: Conflict over trade rights; Clive's conspiracy with Mir Jafar. Effect: Company gained Bengal revenue, became political power.", location: "Main Corridor", grade: "Grade 8", color: "#03a9f4" },
-            { id: 19, title: "Battle of Buxar", subtitle: "Company gets Diwani rights", year: "1764 CE", era: "Colonial India", causeEffect: "Cause: Mir Qasim's resistance to Company abuses. Effect: Company got diwani rights of Bengal, Bihar, Odisha.", location: "Main Corridor", grade: "Grade 8", color: "#03a9f4" },
-            { id: 20, title: "Permanent Settlement", subtitle: "Cornwallis revenue system", year: "1793 CE", era: "Colonial India", causeEffect: "Cause: Need for fixed revenue. Effect: Zamindars became landlords, peasant distress, indigo rebellion.", location: "Main Corridor", grade: "Grade 8", color: "#29b6f6" },
-            { id: 21, title: "Abolition of Sati", subtitle: "Raja Rammohan Roy's campaign", year: "1829 CE", era: "Social Reform", causeEffect: "Cause: Rammohan Roy's persistent campaign using scriptures. Effect: Sati declared illegal; era of legal social reform began.", location: "Main Corridor", grade: "Grade 8", color: "#00bcd4" },
-            { id: 22, title: "Hindu Widows' Remarriage Act", subtitle: "Ishwar Chandra Vidyasagar's efforts", year: "1856 CE", era: "Social Reform", causeEffect: "Cause: Vidyasagar's campaign based on Vedic texts. Effect: Legalized widow remarriage, slowly changed orthodox practices.", location: "Main Corridor", grade: "Grade 8", color: "#00bcd4" },
-            { id: 23, title: "Revolt of 1857", subtitle: "First war of Indian independence", year: "1857 CE", era: "Colonial India", causeEffect: "Cause: Greased cartridges, Doctrine of Lapse, economic exploitation. Effect: End of East India Company rule, Crown Raj began.", location: "Main Corridor", grade: "Grade 8", color: "#009688" },
-            
-            // Indian Nationalism - Classroom 10A
-            { id: 24, title: "Indian National Congress Founded", subtitle: "First political party of India", year: "1885 CE", era: "Indian Nationalism", causeEffect: "Cause: Economic exploitation, need for united political voice. Effect: Rise of organized nationalism, platform for independence movement.", location: "Classroom 10A", grade: "Grade 8-10", color: "#e91e63" },
-            { id: 25, title: "Partition of Bengal", subtitle: "Lord Curzon's divide and rule", year: "1905 CE", era: "Indian Nationalism", causeEffect: "Cause: Curzon's administrative reason; actual: divide and rule. Effect: Swadeshi and Boycott movement, annulment in 1911.", location: "Classroom 10A", grade: "Grade 10", color: "#f06292" },
-            { id: 26, title: "Jallianwala Bagh Massacre", subtitle: "Amritsar tragedy", year: "13 April 1919 CE", era: "Indian Nationalism", causeEffect: "Cause: Rowlatt Act protest; General Dyer fired on unarmed crowd. Effect: Nationwide outrage; led to Non-Cooperation Movement.", location: "Classroom 10A", grade: "Grade 10", color: "#f06292" },
-            { id: 27, title: "Non-Cooperation Movement", subtitle: "Gandhi's first mass movement", year: "1920 - 1922 CE", era: "Indian Nationalism", causeEffect: "Cause: Jallianwala Bagh massacre and Khilafat issue. Effect: Boycott of British goods, courts, schools; withdrawn after Chauri Chaura.", location: "Classroom 10A", grade: "Grade 10", color: "#ec407a" },
-            { id: 28, title: "Dandi March (Salt Satyagraha)", subtitle: "Civil disobedience begins", year: "12 March - 6 April 1930 CE", era: "Indian Nationalism", causeEffect: "Cause: British salt tax, Lahore Congress demand for Purna Swaraj. Effect: Massive civil disobedience, Gandhi-Irwin Pact, Round Table Conferences.", location: "Classroom 10A", grade: "Grade 10", color: "#ec407a" },
-            { id: 29, title: "Quit India Movement", subtitle: "Do or Die", year: "8 August 1942 CE", era: "Indian Nationalism", causeEffect: "Cause: Failure of Cripps Mission, fear of Japanese invasion. Effect: Massive arrests, underground movements, hastened British departure.", location: "Classroom 10A", grade: "Grade 10", color: "#ad1457" },
-            { id: 30, title: "Indian Independence & Partition", subtitle: "Freedom and division", year: "15 August 1947 CE", era: "Indian Nationalism", causeEffect: "Cause: Mountbatten Plan announced Partition on religious lines. Effect: Mass migration of 14 million, communal violence, India-Pakistan hostility.", location: "Classroom 10A", grade: "Grade 10", color: "#ad1457" },
-            
-            // World History - Grade 9
-            { id: 31, title: "French Revolution", subtitle: "Storming of the Bastille", year: "14 July 1789 CE", era: "World History", causeEffect: "Cause: Economic bankruptcy, Enlightenment ideas, social inequality. Effect: Spread of democracy, abolition of feudalism, Napoleonic Code.", location: "Main Corridor", grade: "Grade 9", color: "#3f51b5" },
-            { id: 32, title: "Napoleonic Code", subtitle: "Legal reforms in Europe", year: "1804 CE", era: "World History", causeEffect: "Cause: Napoleon's rise to power. Effect: Modern legal systems, merit-based advancement, spread across Europe.", location: "Main Corridor", grade: "Grade 9", color: "#3f51b5" },
-            { id: 33, title: "Unification of Germany", subtitle: "Bismarck's realpolitik", year: "18 January 1871 CE", era: "World History", causeEffect: "Cause: Prussian desire for German unification. Effect: German Empire proclaimed, shifted European balance of power.", location: "Main Corridor", grade: "Grade 9", color: "#5c6bc0" },
-            { id: 34, title: "Russian Revolution", subtitle: "Bolshevik takeover", year: "25-26 October 1917 CE", era: "World History", causeEffect: "Cause: WWI hardships, food shortages, Tsar's failure. Effect: USSR formed, spread of communism, Cold War tensions.", location: "Main Corridor", grade: "Grade 9", color: "#5c6bc0" },
-            { id: 35, title: "Treaty of Versailles", subtitle: "End of WWI", year: "28 June 1919 CE", era: "World History", causeEffect: "Cause: Allied victory and desire to punish Germany. Effect: German economic crisis, hyperinflation, resentment exploited by Hitler.", location: "Main Corridor", grade: "Grade 9", color: "#7986cb" },
-            { id: 36, title: "Hitler Becomes Chancellor", subtitle: "Rise of Nazism", year: "30 January 1933 CE", era: "World History", causeEffect: "Cause: Great Depression, fear of communism, political maneuvering. Effect: Totalitarian Nazi state, persecution of Jews, WWII.", location: "Main Corridor", grade: "Grade 9", color: "#7986cb" }
-        ];
+        const TIMELINE_API_URL = "https://staticapis.pragament.com/lms/cbse/topic-timeline.json";
+        let allTopics = [];
+        let timelineMeta = {};
 
         // Group by era for timeline
         const eraColors = {
@@ -538,8 +490,93 @@
             "World History": "#3f51b5"
         };
 
+        const gradeColors = {
+            "Grade 6": "#4caf50",
+            "Grade 7": "#ff9800",
+            "Grade 8": "#2196f3",
+            "Grade 9": "#3f51b5",
+            "Grade 10": "#e91e63"
+        };
+
         let currentMode = "timeline";
         let is3DLoaded = false;
+
+        function escapeHtml(value) {
+            return String(value ?? "").replace(/[&<>"']/g, char => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                "\"": "&quot;",
+                "'": "&#39;"
+            }[char]));
+        }
+
+        function normalizeGrade(grade) {
+            const gradeText = String(grade ?? "").trim();
+            if (!gradeText) return "Grade";
+            return gradeText.toLowerCase().startsWith("grade") ? gradeText : `Grade ${gradeText}`;
+        }
+
+        function normalizeTimelineTopic(topic, index) {
+            const grade = normalizeGrade(topic.grade);
+            const era = topic.chapter_name || "Timeline";
+            const location = topic.display_location || topic.location || topic.corridor_classroom_position || "Location not specified";
+            return {
+                id: index + 1,
+                title: topic.subtopic_name || topic.topic_name || "Untitled topic",
+                subtitle: [topic.topic_name, topic.chapter_name].filter(Boolean).join(" | "),
+                year: topic.year_period || "Period not specified",
+                era,
+                causeEffect: topic.cause_effect || "Cause & effect details not available.",
+                location,
+                grade,
+                panelPosition: topic.corridor_classroom_position || "",
+                color: eraColors[era] || gradeColors[grade] || "#ff9800"
+            };
+        }
+
+        function renderTimelineMessage(message) {
+            const container = document.getElementById("timelineContainer");
+            if (!container) return;
+            container.innerHTML = `<div style="text-align: center; padding: 50px;">${escapeHtml(message)}</div>`;
+        }
+
+        async function loadTimelineData() {
+            renderTimelineMessage("Loading timeline data...");
+
+            try {
+                const response = await fetch(TIMELINE_API_URL, { cache: "no-store" });
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+
+                const data = await response.json();
+                const timeline = data.timeline || {};
+                const subtopics = Array.isArray(timeline.subtopics) ? timeline.subtopics : [];
+                if (subtopics.length === 0) {
+                    throw new Error("API response did not include timeline subtopics");
+                }
+
+                timelineMeta = {
+                    title: timeline.title || "",
+                    description: timeline.description || "",
+                    totalSubtopics: timeline.total_subtopics || subtopics.length
+                };
+                allTopics = subtopics.map(normalizeTimelineTopic);
+
+                const titleEl = document.querySelector(".timeline-header h1 span");
+                const subtitleEl = document.querySelector(".timeline-header .subtitle");
+                if (titleEl && timelineMeta.title) titleEl.textContent = timelineMeta.title;
+                if (subtitleEl && timelineMeta.description) {
+                    subtitleEl.textContent = `${timelineMeta.description} | ${allTopics.length} subtopics`;
+                }
+
+                renderTimelineView("all", "");
+            } catch (error) {
+                console.error("Failed to load timeline data:", error);
+                renderTimelineMessage("Unable to load timeline data from the API. Please check your connection and refresh.");
+            }
+        }
 
         // ============================================================
         // TIMELINE VIEW RENDERER (DEFAULT)
@@ -552,22 +589,23 @@
             
             // Filter by grade
             if (filterGrade !== "all") {
-                filteredTopics = filteredTopics.filter(t => t.grade === filterGrade);
+                filteredTopics = filteredTopics.filter(t => t.grade === filterGrade || t.grade.includes(filterGrade.replace("Grade ", "")));
             }
             
             // Filter by search term
             if (searchTerm.trim() !== "") {
                 const term = searchTerm.toLowerCase();
                 filteredTopics = filteredTopics.filter(t => 
-                    t.title.toLowerCase().includes(term) || 
+                    t.title.toLowerCase().includes(term) ||
                     t.subtitle.toLowerCase().includes(term) ||
                     t.causeEffect.toLowerCase().includes(term) ||
-                    t.year.toLowerCase().includes(term)
+                    t.year.toLowerCase().includes(term) ||
+                    t.location.toLowerCase().includes(term)
                 );
             }
             
             if (filteredTopics.length === 0) {
-                container.innerHTML = `<div style="text-align: center; padding: 50px;">🔍 No matching historical events found. Try a different search.</div>`;
+                renderTimelineMessage("No matching historical events found. Try a different search.");
                 return;
             }
             
@@ -581,50 +619,49 @@
                 // Add era divider if era changes
                 if (topic.era !== lastEra) {
                     const eraY = 25 + (index * 85);
-                    html += `<div class="era-label" style="top: ${eraY}px;">📌 ${topic.era}</div>`;
+                    html += `<div class="era-label" style="top: ${eraY}px;">📌 ${escapeHtml(topic.era)}</div>`;
                     lastEra = topic.era;
                 }
                 
                 const side = index % 2 === 0 ? "left" : "right";
                 const borderColor = topic.color;
+                const causePreview = topic.causeEffect.substring(0, 100);
                 
                 html += `
-                    <div class="timeline-item ${side}" data-id="${topic.id}">
+                    <div class="timeline-item ${side}" data-id="${topic.id}" onclick="handleTimelineItemClick(this)">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content" style="border-left-color: ${borderColor};">
-                            <span class="year-badge">📅 ${topic.year}</span>
-                            <div class="title">${topic.title}</div>
-                            <div class="subtitle">${topic.subtitle}</div>
+                            <span class="year-badge">📅 ${escapeHtml(topic.year)}</span>
+                            <div class="title">${escapeHtml(topic.title)}</div>
+                            <div class="subtitle">${escapeHtml(topic.subtitle)}</div>
                             <div>
-                                <span class="grade-badge">${topic.grade}</span>
-                                <span class="location-badge">📍 ${topic.location}</span>
+                                <span class="grade-badge">${escapeHtml(topic.grade)}</span>
+                                <span class="location-badge">📍 ${escapeHtml(topic.location)}</span>
                             </div>
-                            <div class="cause-preview">📖 ${topic.causeEffect.substring(0, 100)}${topic.causeEffect.length > 100 ? '...' : ''}</div>
+                            <div class="cause-preview">📖 ${escapeHtml(causePreview)}${topic.causeEffect.length > 100 ? '...' : ''}</div>
                         </div>
                     </div>
                 `;
             });
             
             container.innerHTML = html;
-            
-            // Add click handlers
-            document.querySelectorAll('.timeline-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const id = parseInt(item.dataset.id);
-                    const topic = allTopics.find(t => t.id === id);
-                    if (topic) showModal(topic);
-                });
-            });
         }
+
+        function handleTimelineItemClick(item) {
+            const id = parseInt(item.dataset.id);
+            const topic = allTopics.find(t => t.id === id);
+            if (topic) showModal(topic);
+        }
+        window.handleTimelineItemClick = handleTimelineItemClick;
         
         function showModal(topic) {
             const modal = document.getElementById("modal");
-            document.getElementById("modalTitle").innerHTML = topic.title;
-            document.getElementById("modalYear").innerHTML = `📅 ${topic.year}`;
-            document.getElementById("modalSubtitle").innerHTML = topic.subtitle;
-            document.getElementById("modalCauseEffect").innerHTML = `<strong>📖 Cause & Effect:</strong><br><br>${topic.causeEffect}`;
-            document.getElementById("modalLocation").innerHTML = `📍 Location: ${topic.location}`;
-            document.getElementById("modalGrade").innerHTML = `🎓 ${topic.grade}`;
+            document.getElementById("modalTitle").textContent = topic.title;
+            document.getElementById("modalYear").textContent = `📅 ${topic.year}`;
+            document.getElementById("modalSubtitle").textContent = topic.subtitle;
+            document.getElementById("modalCauseEffect").innerHTML = `<strong>📖 Cause & Effect:</strong><br><br>${escapeHtml(topic.causeEffect)}`;
+            document.getElementById("modalLocation").textContent = `📍 Location: ${topic.location}${topic.panelPosition ? ` | ${topic.panelPosition}` : ""}`;
+            document.getElementById("modalGrade").textContent = `🎓 ${topic.grade}`;
             modal.style.display = "flex";
         }
         
@@ -690,8 +727,8 @@
         // INITIALIZE TIMELINE VIEW (DEFAULT)
         // ============================================================
         function initTimelineView() {
-            renderTimelineView("all", "");
-            
+            loadTimelineData();
+
             // Search functionality
             const searchInput = document.getElementById("searchInput");
             if (searchInput) {
