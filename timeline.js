@@ -23,14 +23,25 @@ function escapeHtml(value) {
     }[char]));
 }
 
-function renderTimelineMessage(message) {
+function renderTimelineMessage(message, isLoading = false) {
     const container = document.getElementById("timelineContainer");
     if (!container) return;
-    container.innerHTML = `<div class="timeline-message">${escapeHtml(message)}</div>`;
+    let content = "";
+    if (isLoading) {
+        content = `
+            <div class="timeline-loader" style="text-align: center; padding: 40px;">
+                <img src="images/loading.gif" alt="Loading..." style="width: 50px; height: 50px; margin-bottom: 15px;">
+                <p style="color: #b0bec5; font-size: 1.1rem;">${escapeHtml(message)}</p>
+            </div>
+        `;
+    } else {
+        content = `<div class="timeline-message">${escapeHtml(message)}</div>`;
+    }
+    container.innerHTML = content;
 }
 
 async function loadTimelineData() {
-    renderTimelineMessage("Loading timeline data...");
+    renderTimelineMessage("Loading timeline data...", true);
 
     try {
         const response = await fetch(EVENTS_JSON_URL, { cache: "no-store" });

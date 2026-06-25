@@ -37,7 +37,35 @@ CUSTOM_IMAGES = {
     55: ("images/gutenberg_press.png", True)
 }
 
+GIF_URLS = {
+    "images/history_fallback.gif": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Another-Clock.gif",
+    "images/loading.gif": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
+}
+
+def download_assets():
+    if not os.path.exists(IMAGES_DIR):
+        os.makedirs(IMAGES_DIR)
+        print(f"Created directory: {IMAGES_DIR}")
+        
+    for local_path, url in GIF_URLS.items():
+        if not os.path.exists(local_path):
+            print(f"Downloading {local_path} from {url}...")
+            try:
+                req = urllib.request.Request(
+                    url, 
+                    headers={'User-Agent': 'Mozilla/5.0'}
+                )
+                with urllib.request.urlopen(req) as response:
+                    with open(local_path, 'wb') as f:
+                        f.write(response.read())
+                print(f"Successfully downloaded {local_path}")
+            except Exception as e:
+                print(f"Failed to download {local_path}: {e}")
+        else:
+            print(f"{local_path} already exists.")
+
 def main():
+    download_assets()
     print(f"Fetching timeline data from {API_URL}...")
     try:
         req = urllib.request.Request(
@@ -83,7 +111,7 @@ def main():
             if event_id in CUSTOM_IMAGES:
                 img_src, is_ai = CUSTOM_IMAGES[event_id]
             else:
-                img_src = None
+                img_src = "images/history_fallback.gif"
                 is_ai = False
             
             event = {

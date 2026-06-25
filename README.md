@@ -9,9 +9,10 @@ An interactive, high-fidelity digital museum timeline website designed to displa
 1. **Interactive Timeline View (`index.html`)**:
    - Filter events dynamically by CBSE Grade Level (Grade 6 to 10) or search text content.
    - Beautiful responsive layouts with custom HSL-based color tokens corresponding to different historical eras.
-2. **Content-Based AI Illustrations**:
+2. **Content-Based AI Illustrations & Motion GIFs**:
    - Featured timeline events are illustrated using high-quality local AI imagery (e.g. Discovery of Fire, Bhimbetka cave art, Gutenberg press).
-   - Dynamic zoom-and-pan CSS animations (Ken Burns motion effect) applied to the images to simulate active motion GIFs in the browser.
+   - All other timeline events display a sleek, transparent animated clock GIF representing the passage of time/history.
+   - Dynamic zoom-and-pan CSS animations (Ken Burns motion effect) are applied to all illustrations and GIFs to create an active motion feel in the browser.
 3. **Event Explorer Detail Page (`detail.html?id=ID`)**:
    - Deep-linking with unique URL query parameters for each event.
    - Center-focused single-column layout for text-only entries, shifting automatically to a premium split-grid layout for illustrated entries.
