@@ -12,6 +12,15 @@ import numpy as np
 PORT = 8000
 DB_FILE = "events_data.json"
 IMAGES_DIR = "images"
+FALLBACK_GIF = "images/history_fallback.gif"
+FALLBACK_STATIC = "images/history_fallback.png"
+CURATED_DEFAULTS = {
+    10: {"gif": "images/discovery_of_fire.gif", "static": "images/discovery_of_fire.png"},
+    13: {"gif": "images/bhimbetka_cave_art.gif", "static": "images/bhimbetka_cave_art.png"},
+    14: {"gif": "images/invention_of_wheel.gif", "static": "images/invention_of_wheel.png"},
+    19: {"gif": "images/great_bath_mohenjodaro.gif", "static": "images/great_bath_mohenjodaro.png"},
+    55: {"gif": "images/gutenberg_press.gif", "static": "images/gutenberg_press.png"}
+}
 
 # --- BILINEAR INTERPOLATION SAMPLER ---
 
@@ -363,6 +372,91 @@ def draw_procedural_card(title, year, era, grade, color_hex, output_path, size=(
     
     img.save(output_path)
 
+def build_default_prompt(event):
+    cause_text = (event.get("cause_effect", "") or "").replace("Cause & effect details not available.", "").strip()
+    clean_cause = cause_text[:100]
+    return f"A historical illustration representing {event['title']}. {clean_cause} Era: {event['era']}, Year: {event['year']}. Dramatic lighting, oil painting illustration style, highly detailed, masterwork."
+
+def compile_effect_gif(raw_path, gif_path, effect, prompt, event):
+    img = Image.open(raw_path).convert("RGB")
+    img = img.resize((512, 512), Image.Resampling.LANCZOS)
+    img_np = np.array(img).astype(np.float32)
+    
+    detected_effect = effect
+    if effect == "auto":
+        event_title = event.get("title", "")
+        prompt_l = (prompt or "").lower()
+        event_title_l = event_title.lower()
+        is_wheel = any(w in prompt_l or w in event_title_l for w in ["wheel", "spin", "rotate", "chariot", "potter", "chakra"])
+        fire_y, fire_x = np.where((img_np[..., 0] > 140) & (img_np[..., 1] > 80) & (img_np[..., 0] > img_np[..., 2] + 35))
+        has_fire = len(fire_x) > 600
+        
+        if has_fire:
+            detected_effect = "fire"
+            print(f"[Auto-Detect] Found fire pixels ({len(fire_x)} px). Applying Campfire Burn effect.", file=sys.stderr)
+        elif is_wheel:
+            detected_effect = "wheel"
+            print(f"[Auto-Detect] Wheel/rotation keywords matched. Applying Spinning Wheel effect.", file=sys.stderr)
+        else:
+            detected_effect = "kenburns"
+            print("[Auto-Detect] Defaulting to Ken Burns panning effect.", file=sys.stderr)
+    
+    print(f"Applying effect '{detected_effect}' to generated image...", file=sys.stderr)
+    if detected_effect == "fire":
+        frames = generate_fire_frames(img_np)
+    elif detected_effect == "wheel":
+        frames = generate_wheel_frames(img_np)
+    else:
+        frames = generate_kenburns_frames(img_np)
+        
+    palette_frames = [f.convert("P", palette=Image.Palette.ADAPTIVE) for f in frames]
+    palette_frames[0].save(
+        gif_path,
+        save_all=True,
+        append_images=palette_frames[1:],
+        duration=70 if detected_effect in ("fire", "wheel") else 100,
+        loop=0,
+        optimize=True
+    )
+    
+    return detected_effect
+
+def generate_event_assets(event, mode="fooocus", host="http://127.0.0.1:7865", effect="auto", prompt=None):
+    event_id = int(event["id"])
+    event_prompt = (prompt or "").strip() or build_default_prompt(event)
+    static_path = os.path.join(IMAGES_DIR, f"event_{event_id}.png")
+    gif_path = os.path.join(IMAGES_DIR, f"event_{event_id}.gif")
+    
+    if mode == "fooocus":
+        success = generate_fooocus_image(event_prompt, static_path, host)
+        if not success:
+            return {"success": False, "message": "Fooocus local generation failed. Make sure your local Fooocus server is running and API mode is accessible."}
+    elif mode == "pollinations":
+        success = generate_pollinations_image(event_prompt, static_path, event_id)
+        if not success:
+            return {"success": False, "message": "Cloud Pollinations AI generation failed. Verify internet connection."}
+    elif mode == "procedural":
+        draw_procedural_card(event["title"], event["year"], event["era"], event["grade"], event["color"], static_path)
+    else:
+        return {"success": False, "message": f"Invalid mode specified: {mode}"}
+    
+    try:
+        detected_effect = compile_effect_gif(static_path, gif_path, effect, event_prompt, event)
+    except Exception as e:
+        return {"success": False, "message": f"Error during GIF compilation: {str(e)}"}
+    
+    event["image"] = f"images/event_{event_id}.gif"
+    event["static_image"] = f"images/event_{event_id}.png"
+    event["is_ai_image"] = True
+    
+    print(f"[API] Event {event_id} generated static image + animated GIF.", file=sys.stderr)
+    return {
+        "success": True,
+        "detected_effect": detected_effect,
+        "image_path": event["image"],
+        "static_image_path": event["static_image"]
+    }
+
 # --- CUSTOM HTTP REQUEST HANDLER ---
 
 class TimelineAdminHandler(http.server.SimpleHTTPRequestHandler):
@@ -409,104 +503,70 @@ class TimelineAdminHandler(http.server.SimpleHTTPRequestHandler):
             if not event:
                 self.send_json_error(f"Event with ID {event_id} not found in database.")
                 return
+            
+            result = generate_event_assets(event, mode=mode, host=host, effect=effect, prompt=prompt)
+            if not result.get("success"):
+                self.send_json_error(result.get("message", "Generation failed."))
+                return
+            
+            with open(DB_FILE, "w", encoding="utf-8") as f:
+                json.dump(events, f, indent=4, ensure_ascii=False)
                 
-            raw_path = os.path.join(IMAGES_DIR, f"event_{event_id}_raw.png")
-            gif_path = os.path.join(IMAGES_DIR, f"event_{event_id}.gif")
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps(result).encode("utf-8"))
+                
+        elif self.path == "/api/generate_all":
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            params = json.loads(post_data.decode('utf-8'))
             
-            success = False
+            mode = params.get("mode", "fooocus")
+            host = params.get("host", "http://127.0.0.1:7865")
+            effect = params.get("effect", "auto")
+            ids = params.get("ids", [])
             
-            # Phase 1: Generate static image based on selected mode
-            if mode == "fooocus":
-                success = generate_fooocus_image(prompt, raw_path, host)
-                if not success:
-                    self.send_json_error("Fooocus local generation failed. Make sure your local Fooocus server is running and API mode is accessible.")
-                    return
-            elif mode == "pollinations":
-                success = generate_pollinations_image(prompt, raw_path, event_id)
-                if not success:
-                    self.send_json_error("Cloud Pollinations AI generation failed. Verify internet connection.")
-                    return
-            elif mode == "procedural":
-                draw_procedural_card(event["title"], event["year"], event["era"], event["grade"], event["color"], raw_path)
-                success = True
-            else:
-                self.send_json_error(f"Invalid mode specified: {mode}")
+            if not os.path.exists(DB_FILE):
+                self.send_json_error("Database file events_data.json is missing.")
                 return
                 
-            # Phase 2: Convert static image to looping GIF with selected effect
-            if success and os.path.exists(raw_path):
-                try:
-                    img = Image.open(raw_path).convert("RGB")
-                    # Scale down the raw image to 512x512 for fast processing
-                    img = img.resize((512, 512), Image.Resampling.LANCZOS)
-                    img_np = np.array(img).astype(np.float32)
-                    
-                    # Phase 2.1: Dynamic Auto-Detection of Effect based on Image Content
-                    detected_effect = effect
-                    if effect == "auto":
-                        # Check prompt and title for wheel/rotation
-                        event_title = event.get("title", "")
-                        is_wheel = any(w in prompt.lower() or w in event_title.lower() for w in ["wheel", "spin", "rotate", "chariot", "potter", "chakra"])
-                        
-                        # Check image pixels for warm firelight
-                        fire_y, fire_x = np.where((img_np[..., 0] > 140) & (img_np[..., 1] > 80) & (img_np[..., 0] > img_np[..., 2] + 35))
-                        has_fire = len(fire_x) > 600
-                        
-                        if has_fire:
-                            detected_effect = "fire"
-                            print(f"[Auto-Detect] Found fire pixels ({len(fire_x)} px). Applying Campfire Burn effect.", file=sys.stderr)
-                        elif is_wheel:
-                            detected_effect = "wheel"
-                            print(f"[Auto-Detect] Wheel/rotation keywords matched. Applying Spinning Wheel effect.", file=sys.stderr)
-                        else:
-                            detected_effect = "kenburns"
-                            print(f"[Auto-Detect] Defaulting to Ken Burns panning effect.", file=sys.stderr)
-                    
-                    print(f"Applying effect '{detected_effect}' to generated image...", file=sys.stderr)
-                    if detected_effect == "fire":
-                        frames = generate_fire_frames(img_np)
-                    elif detected_effect == "wheel":
-                        frames = generate_wheel_frames(img_np)
-                    else: # default to kenburns
-                        frames = generate_kenburns_frames(img_np)
-                        
-                    # Save frames as looping GIF
-                    palette_frames = [f.convert("P", palette=Image.Palette.ADAPTIVE) for f in frames]
-                    palette_frames[0].save(
-                        gif_path,
-                        save_all=True,
-                        append_images=palette_frames[1:],
-                        duration=70 if detected_effect in ("fire", "wheel") else 100,
-                        loop=0,
-                        optimize=True
-                    )
-                    
-                    # Cleanup raw static image
-                    if os.path.exists(raw_path):
-                        os.remove(raw_path)
-                        
-                    # Phase 3: Update database entry
-                    event["image"] = f"images/event_{event_id}.gif"
-                    event["is_ai_image"] = True
-                    
-                    with open(DB_FILE, "w", encoding="utf-8") as f:
-                        json.dump(events, f, indent=4, ensure_ascii=False)
-                        
-                    print(f"[API] Successfully generated animated GIF and updated database.", file=sys.stderr)
-                    
-                    self.send_response(200)
-                    self.send_header("Content-Type", "application/json")
-                    self.end_headers()
-                    response_payload = {
-                        "success": True,
-                        "image_path": f"images/event_{event_id}.gif",
-                        "detected_effect": detected_effect
-                    }
-                    self.wfile.write(json.dumps(response_payload).encode("utf-8"))
-                except Exception as e:
-                    self.send_json_error(f"Error during GIF compilation: {str(e)}")
-            else:
-                self.send_json_error("Failed to generate base static image.")
+            with open(DB_FILE, "r", encoding="utf-8") as f:
+                events = json.load(f)
+                
+            try:
+                target_ids = set(int(i) for i in ids) if ids else set(e["id"] for e in events)
+            except (TypeError, ValueError):
+                self.send_json_error("Invalid event IDs provided for bulk generation.")
+                return
+            targets = [e for e in events if e["id"] in target_ids]
+            
+            if not targets:
+                self.send_json_error("No matching events found for bulk generation.")
+                return
+            
+            results = []
+            for event in targets:
+                print(f"[API] Bulk generating event {event['id']}...", file=sys.stderr)
+                result = generate_event_assets(event, mode=mode, host=host, effect=effect)
+                results.append({"id": event["id"], **result})
+                
+            with open(DB_FILE, "w", encoding="utf-8") as f:
+                json.dump(events, f, indent=4, ensure_ascii=False)
+                
+            generated_count = sum(1 for r in results if r.get("success"))
+            failed_count = len(results) - generated_count
+            
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.end_headers()
+            self.wfile.write(json.dumps({
+                "success": True,
+                "total": len(results),
+                "generated_count": generated_count,
+                "failed_count": failed_count,
+                "results": results
+            }).encode("utf-8"))
                 
         elif self.path == "/api/reset_event":
             content_length = int(self.headers['Content-Length'])
@@ -531,20 +591,17 @@ class TimelineAdminHandler(http.server.SimpleHTTPRequestHandler):
             custom_gif = os.path.join(IMAGES_DIR, f"event_{event_id}.gif")
             if os.path.exists(custom_gif):
                 os.remove(custom_gif)
+            custom_static = os.path.join(IMAGES_DIR, f"event_{event_id}.png")
+            if os.path.exists(custom_static):
+                os.remove(custom_static)
                 
-            curated_defaults = {
-                10: "images/discovery_of_fire.gif",
-                13: "images/bhimbetka_cave_art.gif",
-                14: "images/invention_of_wheel.gif",
-                19: "images/great_bath_mohenjodaro.gif",
-                55: "images/gutenberg_press.gif"
-            }
-            
-            if event_id in curated_defaults:
-                event["image"] = curated_defaults[event_id]
+            if event_id in CURATED_DEFAULTS:
+                event["image"] = CURATED_DEFAULTS[event_id]["gif"]
+                event["static_image"] = CURATED_DEFAULTS[event_id]["static"]
                 event["is_ai_image"] = True
             else:
-                event["image"] = "images/history_fallback.gif"
+                event["image"] = FALLBACK_GIF
+                event["static_image"] = FALLBACK_STATIC
                 event["is_ai_image"] = False
             
             with open(DB_FILE, "w", encoding="utf-8") as f:

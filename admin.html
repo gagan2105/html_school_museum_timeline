@@ -556,7 +556,7 @@
                                 <li>Ensure the Fooocus server is running on the lab network (typically: <code>http://127.0.0.1:7865</code>).</li>
                                 <li>Make sure API access is enabled. If you use a customized Fooocus API server wrapper, specify the host IP in the form.</li>
                                 <li>Use **Cloud Mode (Pollinations)** to test and play without running Fooocus locally.</li>
-                                <li>The server will automatically crop, downscale, compile a high-quality Ken Burns panning motion GIF, and update <code>events_data.json</code> instantly!</li>
+                                <li>The server will generate both a static PNG and a motion GIF in one click, then update <code>events_data.json</code> instantly.</li>
                             </ul>
                         </div>
                     </section>
@@ -614,12 +614,15 @@
 
                         <div class="actions-row">
                             <button id="btnGenerate" class="btn-primary">
-                                🎨 Generate Animated GIF
+                                🎨 Generate Image + GIF
                             </button>
                             <button id="btnReset" class="btn-secondary" style="border-color: #ef5350; color: #ef5350;">
                                 🔄 Reset to Default
                             </button>
                         </div>
+                        <button id="btnGenerateFiltered" class="btn-secondary" style="width: 100%;">
+                            🚀 Generate for All Filtered Events
+                        </button>
                     </section>
                 </div>
             </div>
@@ -644,9 +647,7 @@
             }
         }
 
-        // Render Sidebar List
-        function renderEventsList() {
-            const container = document.getElementById("eventsListContainer");
+        function getFilteredEvents() {
             const searchVal = document.getElementById("eventSearch").value.toLowerCase();
             const gradeVal = document.getElementById("gradeFilter").value;
 
@@ -663,6 +664,13 @@
                     e.era.toLowerCase().includes(searchVal)
                 );
             }
+            return filtered;
+        }
+
+        // Render Sidebar List
+        function renderEventsList() {
+            const container = document.getElementById("eventsListContainer");
+            const filtered = getFilteredEvents();
 
             if (filtered.length === 0) {
                 container.innerHTML = `<div style="text-align: center; color: #666; padding: 20px;">No events match your filters</div>`;
@@ -788,7 +796,7 @@
 
             const btn = document.getElementById("btnGenerate");
             btn.disabled = true;
-            btn.textContent = "⌛ Compiling GIF...";
+            btn.textContent = "⌛ Generating image + GIF...";
 
             logToTerminal(`Starting generation process (Mode: ${currentMode.toUpperCase()})...`, "info");
             logToTerminal(`Prompt: "${prompt}"`, "info");
@@ -819,12 +827,14 @@
                         "kenburns": "🎬 Ken Burns (Zoom & Pan)"
                     }[data.detected_effect] || data.detected_effect;
                     
-                    logToTerminal(`GIF generation successful! File saved to: ${data.image_path}`);
+                    logToTerminal(`Generation successful! GIF saved: ${data.image_path}`);
+                    logToTerminal(`Static image saved: ${data.static_image_path}`, "info");
                     logToTerminal(`Auto-detected animation effect applied: ${detectedStr}`, "info");
                     logToTerminal(`Timeline JSON database has been updated automatically.`);
                     
                     // Reload event details
                     selectedEvent.image = data.image_path;
+                    selectedEvent.static_image = data.static_image_path;
                     selectedEvent.is_ai_image = true;
                     
                     // Force refresh preview image
@@ -839,6 +849,7 @@
                     const idx = allEvents.findIndex(e => e.id === selectedEvent.id);
                     if (idx !== -1) {
                         allEvents[idx].image = data.image_path;
+                        allEvents[idx].static_image = data.static_image_path;
                         allEvents[idx].is_ai_image = true;
                     }
                     renderEventsList();
@@ -850,7 +861,77 @@
                 logToTerminal(`Connection Error: Server did not respond. Check backend server logs.`, "error");
             } finally {
                 btn.disabled = false;
-                btn.textContent = "🎨 Generate Animated GIF";
+                btn.textContent = "🎨 Generate Image + GIF";
+            }
+        });
+
+        document.getElementById("btnGenerateFiltered").addEventListener("click", async () => {
+            const filteredEvents = getFilteredEvents();
+            if (filteredEvents.length === 0) {
+                alert("No events available in current filters.");
+                return;
+            }
+            if (!confirm(`Generate static image + motion GIF for ${filteredEvents.length} filtered events?`)) {
+                return;
+            }
+
+            const btn = document.getElementById("btnGenerateFiltered");
+            const btnSingle = document.getElementById("btnGenerate");
+            btn.disabled = true;
+            btnSingle.disabled = true;
+            btn.textContent = "⌛ Running bulk generation...";
+            
+            const host = document.getElementById("hostUrl").value.trim();
+            const targetIds = filteredEvents.map(e => e.id);
+            logToTerminal(`Bulk generation started for ${targetIds.length} events...`, "info");
+
+            try {
+                const response = await fetch("/api/generate_all", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        ids: targetIds,
+                        mode: currentMode,
+                        host: host,
+                        effect: document.getElementById("animationEffect").value
+                    })
+                });
+
+                const data = await response.json();
+                if (!(response.ok && data.success)) {
+                    logToTerminal(`Bulk generation error: ${data.message || "Unknown server error"}`, "error");
+                    return;
+                }
+
+                logToTerminal(`Bulk complete: ${data.generated_count}/${data.total} succeeded, ${data.failed_count} failed.`);
+                (data.results || []).forEach(result => {
+                    if (result.success) {
+                        const idx = allEvents.findIndex(e => e.id === result.id);
+                        if (idx !== -1) {
+                            allEvents[idx].image = result.image_path;
+                            allEvents[idx].static_image = result.static_image_path;
+                            allEvents[idx].is_ai_image = true;
+                        }
+                    } else {
+                        logToTerminal(`Event ${result.id} failed: ${result.message}`, "error");
+                    }
+                });
+
+                if (selectedEvent) {
+                    const fresh = allEvents.find(e => e.id === selectedEvent.id);
+                    if (fresh) {
+                        selectedEvent = fresh;
+                        const previewImg = document.getElementById("currentImagePreview");
+                        previewImg.src = selectedEvent.image + "?cb=" + new Date().getTime();
+                    }
+                }
+                renderEventsList();
+            } catch (err) {
+                logToTerminal(`Connection Error: Bulk generation request failed.`, "error");
+            } finally {
+                btn.disabled = false;
+                btnSingle.disabled = false;
+                btn.textContent = "🚀 Generate for All Filtered Events";
             }
         });
 

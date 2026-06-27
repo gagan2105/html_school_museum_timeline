@@ -77,8 +77,9 @@ By default, Fooocus only listens to requests coming from the host computer (`loc
    ```
    http://192.168.1.50:7865
    ```
-6. Customize the prompt or leave the default, choose the **Animation Effect**, and click **Generate Animated GIF**.
-7. The server will call the local Fooocus API, generate the high-quality illustration, compile the animated GIF, and save it immediately to update the Museum website!
+6. Customize the prompt or leave the default, choose the **Animation Effect**, and click **Generate Image + GIF**.
+7. The server will call the local Fooocus API, generate a high-quality static PNG plus an animated GIF motion version in one pass, and save both to update the Museum website immediately.
+8. To process many events quickly, filter the list (optional) and click **Generate for All Filtered Events**.
 
 ---
 

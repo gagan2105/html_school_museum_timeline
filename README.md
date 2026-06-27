@@ -71,5 +71,6 @@ http://localhost:8000/index.html
 
 * **Filtering & Searching**: Use the Grade filter pills or the text search bar on the landing page to narrow down the 187 events.
 * **Deep Links**: Share links like `http://localhost:8000/detail.html?id=13` to navigate directly to specific entries.
+* **Teacher Local Generation**: Open `http://localhost:8000/admin.html` to generate a static event image and a motion GIF together using Fooocus on your local lab server, or run bulk generation for all currently filtered events.
 * **Mobile Sync**: Click the **📱 QR Code** button on any detail page to generate a scannable code. Scan it with your phone's camera to read the display on the go.
 * **3D Guide**: Tap **3D Tour** in the navigation bar to step inside the virtual gallery. Use keyboard arrows or look controls to navigate, or sit back and follow the automated robot guide.
