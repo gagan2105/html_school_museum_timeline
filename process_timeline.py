@@ -28,19 +28,14 @@ GRADE_COLORS = {
     "Grade 10": "#e91e63"
 }
 
-# The 5 custom AI images generated from content-based prompts (now motion GIFs)
+# Curated sample motion GIFs kept in the repository
 CUSTOM_IMAGES = {
     10: ("images/discovery_of_fire.gif", True),
     13: ("images/bhimbetka_cave_art.gif", True),
-    14: ("images/invention_of_wheel.gif", True),
-    19: ("images/great_bath_mohenjodaro.gif", True),
     55: ("images/gutenberg_press.gif", True)
 }
 
-GIF_URLS = {
-    "images/history_fallback.gif": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Another-Clock.gif",
-    "images/loading.gif": "https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif"
-}
+GIF_URLS = {}
 
 def download_assets():
     if not os.path.exists(IMAGES_DIR):
@@ -117,7 +112,7 @@ def main():
                     img_src = custom_gif
                     is_ai = True
                 else:
-                    img_src = "images/history_fallback.gif"
+                    img_src = "images/history_fallback.png"
                     is_ai = False
             
             event = {

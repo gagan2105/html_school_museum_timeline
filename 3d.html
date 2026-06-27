@@ -180,6 +180,17 @@
             font-size: 18px;
             text-align: center;
         }
+        .loading-spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top-color: #ff9800;
+            border-radius: 50%;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+            animation: spin 1s linear infinite;
+        }
 
         .location-tag {
             position: fixed;
@@ -195,6 +206,10 @@
             font-family: monospace;
             pointer-events: none;
             border-right: 3px solid #ff9800;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         @media (max-width: 768px) {
@@ -308,7 +323,7 @@
 
 <body>
     <div class="loading" id="loading">
-        <img src="images/loading.gif" alt="Loading..." style="width: 30px; height: 30px; vertical-align: middle; margin-right: 10px;">
+        <span class="loading-spinner" aria-hidden="true"></span>
         🤖 Loading 3D Museum Tour - Human-Like Robot Guide...
     </div>
     <div class="title-overlay">🏛️ CBSE HISTORY MUSEUM | Robot Walks Like Human Tour Guide 🚶</div>
