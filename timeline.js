@@ -30,7 +30,7 @@ function renderTimelineMessage(message, isLoading = false) {
     if (isLoading) {
         content = `
             <div class="timeline-loader" style="text-align: center; padding: 40px;">
-                <img src="images/loading.gif" alt="Loading..." style="width: 50px; height: 50px; margin-bottom: 15px;">
+                <div style="margin: 0 auto 15px; width: 42px; height: 42px; border: 4px solid rgba(255,255,255,0.2); border-left-color: #ff9800; border-radius: 50%; animation: spin 1s linear infinite;"></div>
                 <p style="color: #b0bec5; font-size: 1.1rem;">${escapeHtml(message)}</p>
             </div>
         `;

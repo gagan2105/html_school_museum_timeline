@@ -10,9 +10,9 @@ An interactive, high-fidelity digital museum timeline website designed to displa
    - Filter events dynamically by CBSE Grade Level (Grade 6 to 10) or search text content.
    - Beautiful responsive layouts with custom HSL-based color tokens corresponding to different historical eras.
 2. **Content-Based AI Illustrations & Motion GIFs**:
-   - Featured timeline events are illustrated using high-quality local AI imagery (e.g. Discovery of Fire, Bhimbetka cave art, Gutenberg press).
-   - All other timeline events display a sleek, transparent animated clock GIF representing the passage of time/history.
-   - Dynamic zoom-and-pan CSS animations (Ken Burns motion effect) are applied to all illustrations and GIFs to create an active motion feel in the browser.
+   - Featured timeline events use a small curated set of sample motion GIFs (Discovery of Fire, Bhimbetka cave art, Gutenberg press).
+   - All other timeline events use the static fallback image (`images/history_fallback.png`) to keep repository media size controlled.
+   - Dynamic zoom-and-pan CSS animations (Ken Burns motion effect) are applied to timeline illustrations.
 3. **Event Explorer Detail Page (`detail.html?id=ID`)**:
    - Deep-linking with unique URL query parameters for each event.
    - Center-focused single-column layout for text-only entries, shifting automatically to a premium split-grid layout for illustrated entries.
@@ -32,6 +32,7 @@ An interactive, high-fidelity digital museum timeline website designed to displa
 - **`process_timeline.py`**: Python compiler script that loads CBSE APIs, fetches images, and builds the local database.
 - **`events_data.json`**: Pre-compiled database mapping all 187 subtopic timeline entries.
 - **`images/`**: Directory hosting content-based AI illustrations (`.png` files) and local fallbacks.
+- **`docs/TEACHER_IMAGE_GENERATION_GUIDE.md`** / **`docs/SAMPLE_PROMPTS.md`**: Teacher self-service guide and prompt packs for manual Fooocus generation on a lab server.
 
 ---
 
@@ -73,3 +74,4 @@ http://localhost:8000/index.html
 * **Deep Links**: Share links like `http://localhost:8000/detail.html?id=13` to navigate directly to specific entries.
 * **Mobile Sync**: Click the **📱 QR Code** button on any detail page to generate a scannable code. Scan it with your phone's camera to read the display on the go.
 * **3D Guide**: Tap **3D Tour** in the navigation bar to step inside the virtual gallery. Use keyboard arrows or look controls to navigate, or sit back and follow the automated robot guide.
+* **Teacher Image Creation**: See `/docs/TEACHER_IMAGE_GENERATION_GUIDE.md` and `/docs/SAMPLE_PROMPTS.md` for manual Fooocus prompt workflow in a computer lab.

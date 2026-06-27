@@ -75,10 +75,7 @@ def main():
     targets = [
         ("discovery_of_fire.png", "discovery_of_fire.gif", "diagonal"),
         ("bhimbetka_cave_art.png", "bhimbetka_cave_art.gif", "horizontal"),
-        ("invention_of_wheel.png", "invention_of_wheel.gif", "diagonal"),
-        ("great_bath_mohenjodaro.png", "great_bath_mohenjodaro.gif", "zoom_in"),
-        ("gutenberg_press.png", "gutenberg_press.gif", "diagonal"),
-        ("history_fallback.png", "history_fallback.gif", "diagonal")
+        ("gutenberg_press.png", "gutenberg_press.gif", "diagonal")
     ]
     
     for src_name, dest_name, pan in targets:

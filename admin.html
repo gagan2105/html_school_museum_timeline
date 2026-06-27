@@ -532,7 +532,7 @@
                         <div class="preview-card">
                             <div id="imageStatusBadge" class="badge-fallback-indicator">CLOCK FALLBACK</div>
                             <div class="preview-image-box">
-                                <img id="currentImagePreview" src="images/history_fallback.gif" class="preview-image animate" alt="Preview Image">
+                                <img id="currentImagePreview" src="images/history_fallback.png" class="preview-image animate" alt="Preview Image">
                             </div>
                             <div class="preview-details">
                                 <div id="previewTitle" class="title">Event Title</div>
@@ -670,7 +670,7 @@
             }
 
             container.innerHTML = filtered.map(event => {
-                const isCustom = event.is_ai_image && event.image !== "images/history_fallback.gif";
+                const isCustom = event.is_ai_image && event.image !== "images/history_fallback.png";
                 const badgeClass = isCustom ? "status-custom" : "status-fallback";
                 const badgeText = isCustom ? "CUSTOM GIF" : "CLOCK FALLBACK";
                 const isActive = selectedEvent && selectedEvent.id === event.id ? "active" : "";
@@ -717,7 +717,7 @@
             
             // Badge
             const badge = document.getElementById("imageStatusBadge");
-            if (selectedEvent.is_ai_image && selectedEvent.image !== "images/history_fallback.gif") {
+            if (selectedEvent.is_ai_image && selectedEvent.image !== "images/history_fallback.png") {
                 badge.className = "badge-ai-indicator";
                 badge.textContent = "CUSTOM GIF MOTION";
             } else {
@@ -878,11 +878,11 @@
                 if (response.ok && data.success) {
                     logToTerminal(`Event reset successful.`);
                     
-                    selectedEvent.image = "images/history_fallback.gif";
+                    selectedEvent.image = "images/history_fallback.png";
                     selectedEvent.is_ai_image = false;
                     
                     const previewImg = document.getElementById("currentImagePreview");
-                    previewImg.src = "images/history_fallback.gif";
+                    previewImg.src = "images/history_fallback.png";
                     
                     const badge = document.getElementById("imageStatusBadge");
                     badge.className = "badge-fallback-indicator";
@@ -890,7 +890,7 @@
 
                     const idx = allEvents.findIndex(e => e.id === selectedEvent.id);
                     if (idx !== -1) {
-                        allEvents[idx].image = "images/history_fallback.gif";
+                        allEvents[idx].image = "images/history_fallback.png";
                         allEvents[idx].is_ai_image = false;
                     }
                     renderEventsList();

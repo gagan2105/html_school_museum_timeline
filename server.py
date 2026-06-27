@@ -535,8 +535,6 @@ class TimelineAdminHandler(http.server.SimpleHTTPRequestHandler):
             curated_defaults = {
                 10: "images/discovery_of_fire.gif",
                 13: "images/bhimbetka_cave_art.gif",
-                14: "images/invention_of_wheel.gif",
-                19: "images/great_bath_mohenjodaro.gif",
                 55: "images/gutenberg_press.gif"
             }
             
@@ -544,7 +542,7 @@ class TimelineAdminHandler(http.server.SimpleHTTPRequestHandler):
                 event["image"] = curated_defaults[event_id]
                 event["is_ai_image"] = True
             else:
-                event["image"] = "images/history_fallback.gif"
+                event["image"] = "images/history_fallback.png"
                 event["is_ai_image"] = False
             
             with open(DB_FILE, "w", encoding="utf-8") as f:
