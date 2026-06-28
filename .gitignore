@@ -1,0 +1,15 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dynamically generated assets
+assets/generated/
+
+# Generation logs
+generation_logs.json
+
+# System files
+.DS_Store
+Thumbs.db

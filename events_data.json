@@ -9,7 +9,7 @@
         "location": "Corridor (Introduction Panel)",
         "grade": "Grade 6",
         "color": "#4caf50",
-        "image": "images/event_1.gif",
+        "image": "assets/generated/gifs/event_1_1782626917.gif",
         "is_ai_image": true
     },
     {
@@ -35,8 +35,8 @@
         "location": "Corridor",
         "grade": "Grade 6",
         "color": "#4caf50",
-        "image": "images/history_fallback.gif",
-        "is_ai_image": false
+        "image": "assets/generated/gifs/event_3_1782626991.gif",
+        "is_ai_image": true
     },
     {
         "id": 4,

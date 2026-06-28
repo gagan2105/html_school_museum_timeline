@@ -1,24 +1,24 @@
-# CBSE School History Museum Timeline
+# 🏛️ CBSE School History Museum: AI-Powered Interactive Timeline
 
-An interactive, high-fidelity digital museum timeline website designed to display historical events from the CBSE Social Science curriculum (Grades 6–10) with immersive visual storytelling. The project features content-based AI illustrations, unique sharing URLs, dynamic QR codes for mobile scanning, and an interactive 3D virtual tour.
+An interactive, high-fidelity digital museum timeline website designed to display historical events from the CBSE Social Science curriculum (Grades 6–10) with immersive visual storytelling. The project features an **AI Creator Studio**, content-based AI illustrations, unique sharing URLs, scannable QR codes, and a 3D virtual tour.
 
 ---
 
-## 🏛️ Key Features
+## 🚀 Key Features
 
 1. **Interactive Timeline View (`index.html`)**:
    - Filter events dynamically by CBSE Grade Level (Grade 6 to 10) or search text content.
    - Beautiful responsive layouts with custom HSL-based color tokens corresponding to different historical eras.
-2. **Content-Based AI Illustrations & Motion GIFs**:
-   - Featured timeline events are illustrated using high-quality local AI imagery (e.g. Discovery of Fire, Bhimbetka cave art, Gutenberg press).
-   - All other timeline events display a sleek, transparent animated clock GIF representing the passage of time/history.
-   - Dynamic zoom-and-pan CSS animations (Ken Burns motion effect) are applied to all illustrations and GIFs to create an active motion feel in the browser.
-3. **Event Explorer Detail Page (`detail.html?id=ID`)**:
+2. **AI Creator Studio / Teacher Portal (`admin.html`)**:
+   - **One-Click Generation**: Manually generate custom illustrations and animated GIFs for any historical event.
+   - **Live status checking**: Automatically detects local AI server status (🟢 Online / 🔴 Offline) and shows helpful messages.
+   - **AI Prompt Library**: Saves customizable prompt templates for all 187 CBSE curriculum events.
+   - **Batch Mode**: Mass-generate illustrations and GIFs for multiple events with live progress status.
+3. **15+ Custom Loop Animation Effects**:
+   - Apply highly optimized, mathematically looped effects to images (e.g. fire burning, water flowing, flag waving, birds flying, screen-shake explosion) using a custom lightweight CPU-based Python rendering pipeline.
+4. **Event Explorer Detail Page (`detail.html?id=ID`)**:
    - Deep-linking with unique URL query parameters for each event.
-   - Center-focused single-column layout for text-only entries, shifting automatically to a premium split-grid layout for illustrated entries.
    - Structured sections highlighting historical **Cause & Effect** dynamics.
-4. **QR Code Generator**:
-   - Directly scan the on-screen QR code to load the current event's detail page onto your smartphone—ideal for physical school museum displays.
 5. **Interactive 3D Virtual Tour (`3d.html`)**:
    - Enter a simulated virtual museum room with an automated robot tour guide navigating through historical display boards.
 
@@ -26,50 +26,42 @@ An interactive, high-fidelity digital museum timeline website designed to displa
 
 ## 📁 Project Structure
 
-- **`index.html`** / **`timeline.js`** / **`timeline.css`**: Main interactive timeline workspace.
-- **`detail.html`**: Premium layout rendering detailed historical breakdowns.
-- **`3d.html`** / **`3d.js`**: Interactive WebGL-based virtual museum tour space.
-- **`process_timeline.py`**: Python compiler script that loads CBSE APIs, fetches images, and builds the local database.
-- **`events_data.json`**: Pre-compiled database mapping all 187 subtopic timeline entries.
-- **`images/`**: Directory hosting content-based AI illustrations (`.png` files) and local fallbacks.
+* **`server.py`**: FastAPI server hosting REST APIs and serving frontend static files.
+* **`backend/`**: Modular backend code:
+  * `config.py`: Loads and saves global configurations.
+  * `prompt_library.py`: Manages prompt templates for events.
+  * `effects.py`: PIL & NumPy implementation of 15 loop animation effects.
+  * `queue_manager.py`: FIFO background task queue, progress tracking, and retries.
+  * `logger.py`: JSON logging system for requests, performance, and errors.
+* **`index.html`** / **`timeline.js`** / **`timeline.css`**: Main timeline web application.
+* **`admin.html`**: The teacher creator panel portal.
+* **`detail.html`**: Detail view and QR code scan dialog.
+* **`3d.html`** / **`3d.js`**: Interactive WebGL-based virtual museum tour space.
 
 ---
 
-## 🛠️ Local Installation & Setup
+## 📖 Detailed Guides & Manuals
 
-Follow these steps to run the interactive timeline locally on your machine:
+For step-by-step instructions on setting up, using, and maintaining the museum timeline:
 
-### 1. Clone the Repository
-Clone this repository to your local computer:
-```bash
-git clone https://github.com/gagan2105/html_school_museum_timeline.git
-cd html_school_museum_timeline
-```
+1. 🛠️ **[Installation & LAN Setup Guide](docs/INSTALLATION_GUIDE.md)**: Installing Python, FastAPI, Fooocus, and making the server accessible over the school local network (LAN).
+2. 👨‍🏫 **[Teacher Portal User Manual](docs/TEACHER_MANUAL.md)**: Working with Creator Studio, modifying prompts, applying animations, and running batch tasks.
+3. ⚙️ **[Lab Administrator Guide](docs/ADMIN_GUIDE.md)**: Configuration parameters, troubleshooting, logs lookup, and database resets.
+4. 🌐 **[REST API Reference](docs/API_DOCUMENTATION.md)**: Details on health endpoints, status polling, and generation routes.
 
-### 2. Compile the Events Database & Assets
-Compile the timeline events data and verify image mappings using the Python ETL compiler script:
+---
+
+## 🛠️ Quick Start
+
+### 1. Initialize the Curriculum Database
 ```bash
 python process_timeline.py
 ```
-*(No external dependencies are required. The script uses native Python libraries to download and cache assets).*
 
-### 3. Launch the Local Development Server
-Start a local HTTP server to host the website and avoid CORS-blocking:
+### 2. Launch the Museum Server
 ```bash
-python -m http.server 8000
+python server.py
 ```
-
-### 4. Open in Your Browser
-Open your favorite web browser and navigate to:
-```url
-http://localhost:8000/index.html
-```
-
----
-
-## 📖 Usage Guide
-
-* **Filtering & Searching**: Use the Grade filter pills or the text search bar on the landing page to narrow down the 187 events.
-* **Deep Links**: Share links like `http://localhost:8000/detail.html?id=13` to navigate directly to specific entries.
-* **Mobile Sync**: Click the **📱 QR Code** button on any detail page to generate a scannable code. Scan it with your phone's camera to read the display on the go.
-* **3D Guide**: Tap **3D Tour** in the navigation bar to step inside the virtual gallery. Use keyboard arrows or look controls to navigate, or sit back and follow the automated robot guide.
+Open your browser and navigate to:
+* **Museum Timeline**: `http://localhost:8000/index.html`
+* **Teacher Portal**: `http://localhost:8000/admin.html`

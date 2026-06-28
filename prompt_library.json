@@ -1,0 +1,937 @@
+{
+    "1": {
+        "title": "Timelines using BCE/CE",
+        "imagePrompt": "A historical illustration representing Timelines using BCE/CE. Cause: Need to organize historical events chronologically. Effect: Enables comparison of events across different civiliz Era: Ch 4: Timeline and Sources of History, Year: Period not specified. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "2": {
+        "title": "Distinguishing between decades, centuries, and millennia",
+        "imagePrompt": "A historical illustration representing Distinguishing between decades, centuries, and millennia. Era: Ch 4: Timeline and Sources of History, Year: Period not specified. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "3": {
+        "title": "Monuments as historical evidence",
+        "imagePrompt": "A historical illustration representing Monuments as historical evidence. Cause: Construction of durable structures by past societies. Effect: Provides evidence of technology, religion, and soci Era: Ch 4: Timeline and Sources of History, Year: Period not specified. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "4": {
+        "title": "Tools and their evolution over time",
+        "imagePrompt": "A historical illustration representing Tools and their evolution over time. Era: Ch 4: Timeline and Sources of History, Year: Period not specified. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "5": {
+        "title": "Coins and inscriptions as sources",
+        "imagePrompt": "A historical illustration representing Coins and inscriptions as sources. Era: Ch 4: Timeline and Sources of History, Year: Period not specified. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "6": {
+        "title": "Manuscripts and their preservation",
+        "imagePrompt": "A historical illustration representing Manuscripts and their preservation. Era: Ch 4: Timeline and Sources of History, Year: Period not specified. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "7": {
+        "title": "Religious and secular texts",
+        "imagePrompt": "A historical illustration representing Religious and secular texts. Era: Ch 4: Timeline and Sources of History, Year: Period not specified. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "8": {
+        "title": "Folk tales and songs as history",
+        "imagePrompt": "A historical illustration representing Folk tales and songs as history. Era: Ch 4: Timeline and Sources of History, Year: Period not specified. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "9": {
+        "title": "Oral genealogies and their importance",
+        "imagePrompt": "A historical illustration representing Oral genealogies and their importance. Era: Ch 4: Timeline and Sources of History, Year: Period not specified. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "10": {
+        "title": "Discovery and control of fire",
+        "imagePrompt": "A historical illustration representing Discovery and control of fire. Cause: Environmental adaptation need. Effect: Allowed cooking, better nutrition, protection from animals, survival in co Era: Ch 5: India, That Is Bharat, Year: c. 1.7 million years ago. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "fire"
+    },
+    "11": {
+        "title": "Palaeolithic age: lifestyle and tools",
+        "imagePrompt": "A historical illustration representing Palaeolithic age: lifestyle and tools. Cause: Need to hunt, scavenge, and process food. Effect: Development of flaked stone tools (hand axes, scrapers), nomadi Era: Ch 5: India, That Is Bharat, Year: c. 2 million years ago – 10,000 BCE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "12": {
+        "title": "Mesolithic and Neolithic transitions",
+        "imagePrompt": "A historical illustration representing Mesolithic and Neolithic transitions. Cause: Climate warming after last Ice Age. Effect: Shift from hunting-gathering to food production (domestication of pla Era: Ch 5: India, That Is Bharat, Year: c. 10,000 BCE – 4,000 BCE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "13": {
+        "title": "Bhimbetka and other rock shelters",
+        "imagePrompt": "A historical illustration representing Bhimbetka and other rock shelters. Era: Ch 5: India, That Is Bharat, Year: c. 30,000 BCE – 10,000 BCE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "14": {
+        "title": "Invention of the wheel",
+        "imagePrompt": "A historical illustration representing Invention of the wheel. Era: Ch 5: India, That Is Bharat, Year: c. 3500 BCE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "wheel"
+    },
+    "15": {
+        "title": "Grid patterns and streets at Harappa and Mohenjo-Daro",
+        "imagePrompt": "A historical illustration representing Grid patterns and streets at Harappa and Mohenjo-Daro. Cause: Need for organized urban living due to surplus agriculture. Effect: Efficient movement, sanitation, and social or Era: Ch 6: The Beginnings of Indian Civilisation, Year: c. 2600 BCE – 1900 BCE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "tree"
+    },
+    "16": {
+        "title": "Advanced drainage and water management systems",
+        "imagePrompt": "A historical illustration representing Advanced drainage and water management systems. Era: Ch 6: The Beginnings of Indian Civilisation, Year: c. 2600 BCE – 1900 BCE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "water"
+    },
+    "17": {
+        "title": "Granaries and warehouse structures",
+        "imagePrompt": "A historical illustration representing Granaries and warehouse structures. Era: Ch 6: The Beginnings of Indian Civilisation, Year: c. 2600 BCE – 1900 BCE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "18": {
+        "title": "Trade with Mesopotamia: beads, shells, and metals",
+        "imagePrompt": "A historical illustration representing Trade with Mesopotamia: beads, shells, and metals. Cause: Surplus production of crafts and need for raw materials (lapis lazuli, copper). Effect: Cultural exchange, spread Era: Ch 6: The Beginnings of Indian Civilisation, Year: c. 2600 BCE – 1900 BCE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "19": {
+        "title": "The Great Bath at Mohenjo-Daro: possible ritual use",
+        "imagePrompt": "A historical illustration representing The Great Bath at Mohenjo-Daro: possible ritual use. Era: Ch 6: The Beginnings of Indian Civilisation, Year: c. 2500 BCE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "water"
+    },
+    "20": {
+        "title": "Theories of decline: climate change, river drying, or invasion",
+        "imagePrompt": "A historical illustration representing Theories of decline: climate change, river drying, or invasion. Cause: Possible climate change (weakening monsoons), Sarasvati river drying, or Aryan migration theory. Effect: Abandonm Era: Ch 6: The Beginnings of Indian Civilisation, Year: c. 1900 BCE – 1300 BCE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "water"
+    },
+    "21": {
+        "title": "Silk Route and Indian Ocean trade",
+        "imagePrompt": "A historical illustration representing Silk Route and Indian Ocean trade. Cause: Demand for luxury goods (silk, spices, pearls) across civilizations. Effect: Spread of religions (Buddhism, Islam Era: Ch 3: The Making of a Global World, Year: 2nd century BCE – 15th century CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "water"
+    },
+    "22": {
+        "title": "Hand-printing (China, Korea, Japan)",
+        "imagePrompt": "A historical illustration representing Hand-printing (China, Korea, Japan). Era: Ch 5: Print Culture and the Modern World, Year: 2nd–15th century CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "23": {
+        "title": "Arrival and influence of Islam",
+        "imagePrompt": "A historical illustration representing Arrival and influence of Islam. Cause: Arab conquest of Sindh (Muhammad bin Qasim) and later Turkic invasions. Effect: Introduction of Islamic governanc Era: Ch 1: Tracing Changes Through a Thousand Years, Year: c. 712 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "24": {
+        "title": "Emergence of Rajput clans",
+        "imagePrompt": "A historical illustration representing Emergence of Rajput clans. Cause: Decline of Harsha's empire and Gupta central authority. Effect: Rise of regional kingdoms, bardic traditions, Raj Era: Ch 1: Tracing Changes Through a Thousand Years, Year: 8th–12th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "25": {
+        "title": "Early medieval (8th–12th century)",
+        "imagePrompt": "A historical illustration representing Early medieval (8th–12th century). Era: Ch 1: Tracing Changes Through a Thousand Years, Year: 8th–12th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "26": {
+        "title": "Rashtrakutas, Pratiharas, and Palas (Tripartite struggle)",
+        "imagePrompt": "A historical illustration representing Rashtrakutas, Pratiharas, and Palas (Tripartite struggle). Cause: Decline of Harsha's empire and Gupta central authority. Effect: Prolonged warfare over Kannauj, weakening of all  Era: Ch 2: New Kings and Kingdoms, Year: 8th–10th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "27": {
+        "title": "Chera kings and introduction of Malayalam",
+        "imagePrompt": "A historical illustration representing Chera kings and introduction of Malayalam. Era: Ch 9: The Making of Regional Cultures, Year: 9th–12th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "28": {
+        "title": "Chahamanas (Chauhans) and their expansion",
+        "imagePrompt": "A historical illustration representing Chahamanas (Chauhans) and their expansion. Era: Ch 2: New Kings and Kingdoms, Year: 11th–12th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "29": {
+        "title": "Achievements in bronze sculpture and agriculture",
+        "imagePrompt": "A historical illustration representing Achievements in bronze sculpture and agriculture. Era: Ch 2: New Kings and Kingdoms, Year: 10th–13th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "30": {
+        "title": "Temples at Khajuraho and Konark",
+        "imagePrompt": "A historical illustration representing Temples at Khajuraho and Konark. Era: Ch 5: Rulers and Buildings, Year: 10th–13th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "31": {
+        "title": "Brihadeshwara Temple at Thanjavur",
+        "imagePrompt": "A historical illustration representing Brihadeshwara Temple at Thanjavur. Cause: Chola imperial ambition and devotion to Shiva (Rajaraja Chola). Effect: Symbol of Chola power, patronage of art a Era: Ch 2: New Kings and Kingdoms, Year: c. 1010 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "32": {
+        "title": "Examples: Somnath and Vishwanath temples",
+        "imagePrompt": "A historical illustration representing Examples: Somnath and Vishwanath temples. Cause: Mahmud of Ghazni's raids for wealth and religious symbolism. Effect: Weakening of temple patronage, loss of wealt Era: Ch 5: Rulers and Buildings, Year: 1026 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "33": {
+        "title": "Chronicles and court histories (e.g., Rajatarangini)",
+        "imagePrompt": "A historical illustration representing Chronicles and court histories (e.g., Rajatarangini). Era: Ch 1: Tracing Changes Through a Thousand Years, Year: 12th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "34": {
+        "title": "Travelogues of Al-Biruni, Ibn Battuta, and Marco Polo",
+        "imagePrompt": "A historical illustration representing Travelogues of Al-Biruni, Ibn Battuta, and Marco Polo. Era: Ch 1: Tracing Changes Through a Thousand Years, Year: 11th–14th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "35": {
+        "title": "Nayanars (Shiva devotees)",
+        "imagePrompt": "A historical illustration representing Nayanars (Shiva devotees). Era: Ch 8: Devotional Paths to the Divine, Year: 7th–8th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "36": {
+        "title": "Alvars (Vishnu devotees)",
+        "imagePrompt": "A historical illustration representing Alvars (Vishnu devotees). Era: Ch 8: Devotional Paths to the Divine, Year: 7th–8th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "37": {
+        "title": "Shankara's Advaita Vedanta",
+        "imagePrompt": "A historical illustration representing Shankara's Advaita Vedanta. Era: Ch 8: Devotional Paths to the Divine, Year: 8th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "38": {
+        "title": "Composition of devotional hymns (Tevaram, Divya Prabandham)",
+        "imagePrompt": "A historical illustration representing Composition of devotional hymns (Tevaram, Divya Prabandham). Era: Ch 8: Devotional Paths to the Divine, Year: 8th–9th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "39": {
+        "title": "Ramanuja's Vishishtadvaita",
+        "imagePrompt": "A historical illustration representing Ramanuja's Vishishtadvaita. Era: Ch 8: Devotional Paths to the Divine, Year: 11th–12th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "40": {
+        "title": "Basavanna and Lingayats",
+        "imagePrompt": "A historical illustration representing Basavanna and Lingayats. Era: Ch 8: Devotional Paths to the Divine, Year: 12th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "41": {
+        "title": "Jnaneshwar and Tukaram",
+        "imagePrompt": "A historical illustration representing Jnaneshwar and Tukaram. Era: Ch 8: Devotional Paths to the Divine, Year: 13th–17th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "42": {
+        "title": "Minhaj-i-Siraj's Tabaqat-i-Nasiri",
+        "imagePrompt": "A historical illustration representing Minhaj-i-Siraj's Tabaqat-i-Nasiri. Era: Ch 3: The Delhi Sultans, Year: 13th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "43": {
+        "title": "Delhi as Sultanate and Mughal capital",
+        "imagePrompt": "A historical illustration representing Delhi as Sultanate and Mughal capital. Era: Ch 6: Towns, Traders and Craftspersons, Year: 13th–17th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "44": {
+        "title": "Ahom state in Brahmaputra valley",
+        "imagePrompt": "A historical illustration representing Ahom state in Brahmaputra valley. Era: Ch 7: Tribes, Nomads and Settled Communities, Year: 13th–18th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "45": {
+        "title": "Late medieval (13th–18th century)",
+        "imagePrompt": "A historical illustration representing Late medieval (13th–18th century). Era: Ch 1: Tracing Changes Through a Thousand Years, Year: 13th–18th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "46": {
+        "title": "Hampi: Vijayanagara ruins",
+        "imagePrompt": "A historical illustration representing Hampi: Vijayanagara ruins. Era: Ch 6: Towns, Traders and Craftspersons, Year: 14th–16th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "47": {
+        "title": "Gond kingdom of Garha Katanga",
+        "imagePrompt": "A historical illustration representing Gond kingdom of Garha Katanga. Era: Ch 7: Tribes, Nomads and Settled Communities, Year: 15th–16th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "48": {
+        "title": "Kabir's dohas and nirguna bhakti",
+        "imagePrompt": "A historical illustration representing Kabir's dohas and nirguna bhakti. Era: Ch 8: Devotional Paths to the Divine, Year: 15th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "49": {
+        "title": "Memoirs of Babur (Baburnama)",
+        "imagePrompt": "A historical illustration representing Memoirs of Babur (Baburnama). Era: Ch 4: The Mughal Empire, Year: 16th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "fire"
+    },
+    "50": {
+        "title": "Persian influence on Mughal miniatures",
+        "imagePrompt": "A historical illustration representing Persian influence on Mughal miniatures. Era: Ch 9: The Making of Regional Cultures, Year: 16th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "51": {
+        "title": "Conquest of Americas and silver trade",
+        "imagePrompt": "A historical illustration representing Conquest of Americas and silver trade. Era: Ch 3: The Making of a Global World, Year: 1492–1600 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "52": {
+        "title": "Guru Nanak's teachings and Sikhism foundation",
+        "imagePrompt": "A historical illustration representing Guru Nanak's teachings and Sikhism foundation. Era: Ch 8: Devotional Paths to the Divine, Year: 1469–1539 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "53": {
+        "title": "Babur's conquest of Delhi (1526)",
+        "imagePrompt": "A historical illustration representing Babur's conquest of Delhi (1526). Cause: Invitation by Daulat Khan Lodi and Rana Sanga; weakness of Ibrahim Lodi's army. Effect: Establishment of the Mugh Era: Ch 4: The Mughal Empire, Year: 1526 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "54": {
+        "title": "Battles of Panipat, Khanwa, and Ghaghra",
+        "imagePrompt": "A historical illustration representing Battles of Panipat, Khanwa, and Ghaghra. Era: Ch 4: The Mughal Empire, Year: 1526–1529 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "55": {
+        "title": "Gutenberg's printing press (1448)",
+        "imagePrompt": "A historical illustration representing Gutenberg's printing press (1448). Cause: Need for faster book production than hand-copying (scriptoria). Effect: Print Revolution: mass production of book Era: Ch 5: Print Culture and the Modern World, Year: c. 1448 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "56": {
+        "title": "First printing press in Goa (1556)",
+        "imagePrompt": "A historical illustration representing First printing press in Goa (1556). Era: Ch 5: Print Culture and the Modern World, Year: 1556 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "57": {
+        "title": "Expansion under Akbar, Jahangir, and Shah Jahan",
+        "imagePrompt": "A historical illustration representing Expansion under Akbar, Jahangir, and Shah Jahan. Era: Ch 4: The Mughal Empire, Year: 1556–1658 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "58": {
+        "title": "Din-i-Ilahi and religious debates (Ibadat Khana)",
+        "imagePrompt": "A historical illustration representing Din-i-Ilahi and religious debates (Ibadat Khana). Cause: Need to unify a religiously diverse empire (Hindus, Muslims, Jains, Zoroastrians). Effect: Reduced religious pers Era: Ch 4: The Mughal Empire, Year: 1575–1580 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "59": {
+        "title": "Surat: Gateway to Mecca and port of Mughals",
+        "imagePrompt": "A historical illustration representing Surat: Gateway to Mecca and port of Mughals. Era: Ch 6: Towns, Traders and Craftspersons, Year: 16th–17th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "60": {
+        "title": "Mughal influence on Kathak",
+        "imagePrompt": "A historical illustration representing Mughal influence on Kathak. Era: Ch 9: The Making of Regional Cultures, Year: 16th–17th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "61": {
+        "title": "Temple architecture (terracotta)",
+        "imagePrompt": "A historical illustration representing Temple architecture (terracotta). Era: Ch 9: The Making of Regional Cultures, Year: 16th–18th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "62": {
+        "title": "Before factories: merchant-controlled home production",
+        "imagePrompt": "A historical illustration representing Before factories: merchant-controlled home production. Era: Ch 4: The Age of Industrialisation, Year: 16th–18th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "63": {
+        "title": "East India Company's charter (1600)",
+        "imagePrompt": "A historical illustration representing East India Company's charter (1600). Era: Ch 2: From Trade to Territory, Year: 1600 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "64": {
+        "title": "Surat, Madras, Bombay, Calcutta settlements",
+        "imagePrompt": "A historical illustration representing Surat, Madras, Bombay, Calcutta settlements. Era: Ch 2: From Trade to Territory, Year: 1612–1690 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "explosion"
+    },
+    "65": {
+        "title": "Masulipatnam: Dutch and English factories",
+        "imagePrompt": "A historical illustration representing Masulipatnam: Dutch and English factories. Era: Ch 6: Towns, Traders and Craftspersons, Year: 17th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "66": {
+        "title": "Red Fort and Agra Fort",
+        "imagePrompt": "A historical illustration representing Red Fort and Agra Fort. Era: Ch 5: Rulers and Buildings, Year: 17th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "67": {
+        "title": "Rajasthan and Pahari schools",
+        "imagePrompt": "A historical illustration representing Rajasthan and Pahari schools. Era: Ch 9: The Making of Regional Cultures, Year: 17th–18th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "68": {
+        "title": "Rise of Marathas, Sikhs, and Jats",
+        "imagePrompt": "A historical illustration representing Rise of Marathas, Sikhs, and Jats. Era: Ch 1: Tracing Changes Through a Thousand Years, Year: 17th–18th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "69": {
+        "title": "Aurangzeb's long wars and empty treasury",
+        "imagePrompt": "A historical illustration representing Aurangzeb's long wars and empty treasury. Era: Ch 10: 18th-Century Political Formations, Year: 1680–1707 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "70": {
+        "title": "Khalsa and Dal Khalsa under Guru Gobind Singh",
+        "imagePrompt": "A historical illustration representing Khalsa and Dal Khalsa under Guru Gobind Singh. Era: Ch 10: 18th-Century Political Formations, Year: 1699 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "71": {
+        "title": "Raja Sawai Jai Singh of Jaipur",
+        "imagePrompt": "A historical illustration representing Raja Sawai Jai Singh of Jaipur. Era: Ch 10: 18th-Century Political Formations, Year: 1699–1743 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "72": {
+        "title": "Bengal under Murshid Quli Khan",
+        "imagePrompt": "A historical illustration representing Bengal under Murshid Quli Khan. Era: Ch 10: 18th-Century Political Formations, Year: 1717 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "73": {
+        "title": "Awadh under Burhan-ul-Mulk",
+        "imagePrompt": "A historical illustration representing Awadh under Burhan-ul-Mulk. Era: Ch 10: 18th-Century Political Formations, Year: 1722 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "74": {
+        "title": "Hyderabad under Nizam-ul-Mulk",
+        "imagePrompt": "A historical illustration representing Hyderabad under Nizam-ul-Mulk. Era: Ch 10: 18th-Century Political Formations, Year: 1724 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "75": {
+        "title": "Nadir Shah's invasion (1739)",
+        "imagePrompt": "A historical illustration representing Nadir Shah's invasion (1739). Cause: Weak Mughal administration and Nadir Shah's need for wealth. Effect: Plunder of the Peacock Throne and Koh-i-Noor Era: Ch 10: 18th-Century Political Formations, Year: 1739 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "76": {
+        "title": "Orientalists: William Jones (support for Indian learning)",
+        "imagePrompt": "A historical illustration representing Orientalists: William Jones (support for Indian learning). Era: Ch 6: Civilising the 'Native', Educating the Nation, Year: 1746–1794 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "77": {
+        "title": "Battle of Plassey (1757): Siraj-ud-Daulah vs Clive",
+        "imagePrompt": "A historical illustration representing Battle of Plassey (1757): Siraj-ud-Daulah vs Clive. Cause: Conflict between Siraj-ud-Daulah and the East India Company over trade rights and fortification. Robert Clive's c Era: Ch 2: From Trade to Territory, Year: 1757 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "78": {
+        "title": "Battle of Buxar (1764) and Treaty of Allahabad",
+        "imagePrompt": "A historical illustration representing Battle of Buxar (1764) and Treaty of Allahabad. Cause: Mir Qasim's resistance to Company's trade abuses and alliance with Awadh and Mughal emperor. Effect: Company got  Era: Ch 2: From Trade to Territory, Year: 1764–1765 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "79": {
+        "title": "Anglicists: James Mill and Macaulay (promotion of English)",
+        "imagePrompt": "A historical illustration representing Anglicists: James Mill and Macaulay (promotion of English). Era: Ch 6: Civilising the 'Native', Educating the Nation, Year: 1773–1859 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "80": {
+        "title": "Lord Cornwallis's system (1793) in Bengal",
+        "imagePrompt": "A historical illustration representing Lord Cornwallis's system (1793) in Bengal. Cause: Need for fixed revenue to ensure Company income and create loyal zamindars. Effect: Zamindars became landlords, p Era: Ch 3: Ruling the Countryside, Year: 1793 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "81": {
+        "title": "Lord Wellesley's policy and terms",
+        "imagePrompt": "A historical illustration representing Lord Wellesley's policy and terms. Era: Ch 2: From Trade to Territory, Year: 1798–1805 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "82": {
+        "title": "Raja Rammohan Roy's campaign and Regulation XVII (1829)",
+        "imagePrompt": "A historical illustration representing Raja Rammohan Roy's campaign and Regulation XVII (1829). Cause: Rammohan Roy's persistent campaign against Sati using scriptures and reason; pressure on Lord William Bentinck. E Era: Ch 7: Women, Caste and Reform, Year: 1829 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "83": {
+        "title": "Baptist missionaries in Serampore",
+        "imagePrompt": "A historical illustration representing Baptist missionaries in Serampore. Era: Ch 5: Print Culture and the Modern World, Year: 1800 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "84": {
+        "title": "Women readers and writers (Rashsundari Devi)",
+        "imagePrompt": "A historical illustration representing Women readers and writers (Rashsundari Devi). Cause: Spread of print technology and women's education movements. Effect: Emergence of women's voices in literature (Ra Era: Ch 5: Print Culture and the Modern World, Year: 1800–1899 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "85": {
+        "title": "Three periods: Hindu, Muslim, British",
+        "imagePrompt": "A historical illustration representing Three periods: Hindu, Muslim, British. Era: Ch 1: How, When and Where, Year: 1817 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "86": {
+        "title": "Luddites and machine-breaking protests",
+        "imagePrompt": "A historical illustration representing Luddites and machine-breaking protests. Cause: Introduction of machinery that replaced skilled workers and lowered wages. Effect: Destroyed machines in protests Era: Ch 4: The Age of Industrialisation, Year: 1811–1816 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "87": {
+        "title": "Thomas Munro's system in Madras and Bombay",
+        "imagePrompt": "A historical illustration representing Thomas Munro's system in Madras and Bombay. Era: Ch 3: Ruling the Countryside, Year: 1820s CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "explosion"
+    },
+    "88": {
+        "title": "Holt Mackenzie's system in North-West Provinces",
+        "imagePrompt": "A historical illustration representing Holt Mackenzie's system in North-West Provinces. Era: Ch 3: Ruling the Countryside, Year: 1822 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "89": {
+        "title": "English as medium of instruction",
+        "imagePrompt": "A historical illustration representing English as medium of instruction. Era: Ch 6: Civilising the 'Native', Educating the Nation, Year: 1835 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "90": {
+        "title": "Anglo-Sikh wars and annexation of Punjab",
+        "imagePrompt": "A historical illustration representing Anglo-Sikh wars and annexation of Punjab. Era: Ch 2: From Trade to Territory, Year: 1845–1849 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "91": {
+        "title": "Annexation of Satara, Jhansi, Nagpur",
+        "imagePrompt": "A historical illustration representing Annexation of Satara, Jhansi, Nagpur. Era: Ch 2: From Trade to Territory, Year: 1848–1854 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "92": {
+        "title": "Doctrine of Lapse annexations",
+        "imagePrompt": "A historical illustration representing Doctrine of Lapse annexations. Era: Ch 2: From Trade to Territory, Year: 1848–1856 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "93": {
+        "title": "Bethune School (Calcutta)",
+        "imagePrompt": "A historical illustration representing Bethune School (Calcutta). Era: Ch 7: Women, Caste and Reform, Year: 1849 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "94": {
+        "title": "Wood's Despatch (1854) and university establishment",
+        "imagePrompt": "A historical illustration representing Wood's Despatch (1854) and university establishment. Era: Ch 6: Civilising the 'Native', Educating the Nation, Year: 1854 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "95": {
+        "title": "Santhal rebellion (1855) under Sidhu and Kanhu",
+        "imagePrompt": "A historical illustration representing Santhal rebellion (1855) under Sidhu and Kanhu. Era: Ch 4: Tribals, Dikus and the Vision of a Golden Age, Year: 1855 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "96": {
+        "title": "Hindu Widows' Remarriage Act (1856)",
+        "imagePrompt": "A historical illustration representing Hindu Widows' Remarriage Act (1856). Cause: Ishwar Chandra Vidyasagar's campaign based on Vedic texts. Effect: Legalized widow remarriage, but social stigma  Era: Ch 7: Women, Caste and Reform, Year: 1856 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "97": {
+        "title": "Calcutta, Bombay, Madras universities",
+        "imagePrompt": "A historical illustration representing Calcutta, Bombay, Madras universities. Era: Ch 6: Civilising the 'Native', Educating the Nation, Year: 1857 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "explosion"
+    },
+    "98": {
+        "title": "Disobedience and revolt of sepoys in Meerut",
+        "imagePrompt": "A historical illustration representing Disobedience and revolt of sepoys in Meerut. Era: Ch 5: When People Rebel - 1857, Year: 10 May 1857 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "crowd"
+    },
+    "99": {
+        "title": "End of East India Company rule (1858)",
+        "imagePrompt": "A historical illustration representing End of East India Company rule (1858). Cause: British failure to suppress 1857 rebellion quickly; realization that Company rule was unstable. Effect: British C Era: Ch 5: When People Rebel - 1857, Year: 1858 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "100": {
+        "title": "Reorganization of army and policies toward princes",
+        "imagePrompt": "A historical illustration representing Reorganization of army and policies toward princes. Era: Ch 5: When People Rebel - 1857, Year: 1858 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "101": {
+        "title": "British Crown's direct rule (Queen's Proclamation)",
+        "imagePrompt": "A historical illustration representing British Crown's direct rule (Queen's Proclamation). Era: Ch 5: When People Rebel - 1857, Year: 1 November 1858 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "102": {
+        "title": "Forest Acts and loss of traditional rights",
+        "imagePrompt": "A historical illustration representing Forest Acts and loss of traditional rights. Cause: Colonial need for timber (railways, ships) and commercial crops. Effect: Forced eviction of tribals from forests, Era: Ch 4: Tribals, Dikus and the Vision of a Golden Age, Year: 1865–1927 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "tree"
+    },
+    "103": {
+        "title": "Victor Emmanuel II proclaimed king (1861)",
+        "imagePrompt": "A historical illustration representing Victor Emmanuel II proclaimed king (1861). Cause: Rise of nationalist secret societies (Young Italy, Carbonari); failure of 1848 revolutions. Effect: Italy unified Era: Ch 1: Rise of Nationalism in Europe, Year: 17 March 1861 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "104": {
+        "title": "Proclamation of German Empire (1871)",
+        "imagePrompt": "A historical illustration representing Proclamation of German Empire (1871). Cause: Prussian desire for German unification under conservative leadership (kleindeutsch), excluding Austria. Effect: G Era: Ch 1: Rise of Nationalism in Europe, Year: 18 January 1871 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "105": {
+        "title": "Jyotirao Phule and Satyashodhak Samaj",
+        "imagePrompt": "A historical illustration representing Jyotirao Phule and Satyashodhak Samaj. Cause: Phule's own experience of caste discrimination and denial of education. Effect: Founded Satyashodhak Samaj to cha Era: Ch 7: Women, Caste and Reform, Year: 1873 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "106": {
+        "title": "Censorship and Vernacular Press Act (1878)",
+        "imagePrompt": "A historical illustration representing Censorship and Vernacular Press Act (1878). Cause: British fear of nationalist writings in vernacular newspapers. Effect: Tight censorship of Indian-language press, Era: Ch 5: Print Culture and the Modern World, Year: 1878 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "107": {
+        "title": "Indian National Congress (1885) foundation",
+        "imagePrompt": "A historical illustration representing Indian National Congress (1885) foundation. Era: Ch 8: The Making of the National Movement, Year: 1885 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "108": {
+        "title": "Saminist movement (Surontiko Samin)",
+        "imagePrompt": "A historical illustration representing Saminist movement (Surontiko Samin). Era: Ch 4: Forest Society and Colonialism, Year: 1890–1907 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "109": {
+        "title": "Establishment of National Archives of India",
+        "imagePrompt": "A historical illustration representing Establishment of National Archives of India. Era: Ch 1: How, When and Where, Year: 1891 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "110": {
+        "title": "Swami Vivekananda and Ramakrishna Mission",
+        "imagePrompt": "A historical illustration representing Swami Vivekananda and Ramakrishna Mission. Era: Ch 7: Women, Caste and Reform, Year: 1897 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "111": {
+        "title": "Birsa Munda's revolt (1899-1900) and Munda uprising",
+        "imagePrompt": "A historical illustration representing Birsa Munda's revolt (1899-1900) and Munda uprising. Cause: Forest Acts, land alienation, forced labor, and missionary activities (Direct cause: Birsa's divine claim and Mun Era: Ch 4: Tribals, Dikus and the Vision of a Golden Age, Year: 1899–1900 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "crowd"
+    },
+    "112": {
+        "title": "Bloody Sunday (9 Jan 1905)",
+        "imagePrompt": "A historical illustration representing Bloody Sunday (9 Jan 1905). Era: Ch 2: Socialism in Europe and Russian Revolution, Year: 9 January 1905 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "113": {
+        "title": "Lord Curzon's partition of Bengal",
+        "imagePrompt": "A historical illustration representing Lord Curzon's partition of Bengal. Cause: Curzon's stated administrative reason; actual cause: divide and rule policy (Hindu-Muslim rift). Effect: Massive  Era: Ch 8: The Making of the National Movement, Year: 1905 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "114": {
+        "title": "Swadeshi and Boycott movements",
+        "imagePrompt": "A historical illustration representing Swadeshi and Boycott movements. Era: Ch 8: The Making of the National Movement, Year: 1905–1908 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "115": {
+        "title": "Formation of Duma (parliament)",
+        "imagePrompt": "A historical illustration representing Formation of Duma (parliament). Era: Ch 2: Socialism in Europe and Russian Revolution, Year: 1906 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "116": {
+        "title": "Bastar rebellion (1910)",
+        "imagePrompt": "A historical illustration representing Bastar rebellion (1910). Era: Ch 4: Tribals, Dikus and the Vision of a Golden Age, Year: 1910 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "117": {
+        "title": "Suppression and aftermath",
+        "imagePrompt": "A historical illustration representing Suppression and aftermath. Era: Ch 4: Forest Society and Colonialism, Year: 1910 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "118": {
+        "title": "Champaran (1917): indigo peasants",
+        "imagePrompt": "A historical illustration representing Champaran (1917): indigo peasants. Era: Ch 8: The Making of the National Movement, Year: 1917 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "119": {
+        "title": "Ahmedabad (1918): mill workers",
+        "imagePrompt": "A historical illustration representing Ahmedabad (1918): mill workers. Era: Ch 8: The Making of the National Movement, Year: 1918 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "120": {
+        "title": "Kheda (1918): tax relief for peasants",
+        "imagePrompt": "A historical illustration representing Kheda (1918): tax relief for peasants. Era: Ch 8: The Making of the National Movement, Year: 1918 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "121": {
+        "title": "Treaty of Versailles (1919) harsh terms",
+        "imagePrompt": "A historical illustration representing Treaty of Versailles (1919) harsh terms. Cause: Allied victory in WWI and desire to punish Germany. Effect: Germany lost territory, had to pay massive reparation Era: Ch 3: Nazism and the Rise of Hitler, Year: 28 June 1919 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "122": {
+        "title": "Rowlatt Act (1919) and Satyagraha",
+        "imagePrompt": "A historical illustration representing Rowlatt Act (1919) and Satyagraha. Era: Ch 2: Nationalism in India, Year: 18 March 1919 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "123": {
+        "title": "Jallianwala Bagh massacre (13 April 1919)",
+        "imagePrompt": "A historical illustration representing Jallianwala Bagh massacre (13 April 1919). Cause: Rowlatt Act allowed detention without trial; protest meeting at Jallianwala Bagh. Direct cause: General Dyer orde Era: Ch 2: Nationalism in India, Year: 13 April 1919 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "124": {
+        "title": "Hunter Commission and public outrage",
+        "imagePrompt": "A historical illustration representing Hunter Commission and public outrage. Era: Ch 2: Nationalism in India, Year: 1919–1920 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "125": {
+        "title": "Khilafat issue (Turkey's Caliph)",
+        "imagePrompt": "A historical illustration representing Khilafat issue (Turkey's Caliph). Era: Ch 2: Nationalism in India, Year: 1919–1924 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "126": {
+        "title": "Khilafat issue and Gandhi's leadership",
+        "imagePrompt": "A historical illustration representing Khilafat issue and Gandhi's leadership. Era: Ch 8: The Making of the National Movement, Year: 1920–1922 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "127": {
+        "title": "Non-Cooperation Movement (1920-22)",
+        "imagePrompt": "A historical illustration representing Non-Cooperation Movement (1920-22). Cause: Jallianwala Bagh massacre (1919) and injustice to Turkey's Caliph (Khilafat issue). Effect: Widespread boycott of Era: Ch 2: Nationalism in India, Year: 1920–1922 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "128": {
+        "title": "Chauri Chaura incident and withdrawal",
+        "imagePrompt": "A historical illustration representing Chauri Chaura incident and withdrawal. Era: Ch 8: The Making of the National Movement, Year: 5 February 1922 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "129": {
+        "title": "Withdrawal after Chauri Chaura (1922)",
+        "imagePrompt": "A historical illustration representing Withdrawal after Chauri Chaura (1922). Era: Ch 2: Nationalism in India, Year: 5 February 1922 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "130": {
+        "title": "Tribals: Alluri Sitarama Raju and Rampa rebellion",
+        "imagePrompt": "A historical illustration representing Tribals: Alluri Sitarama Raju and Rampa rebellion. Era: Ch 2: Nationalism in India, Year: 1922–1924 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "131": {
+        "title": "Weimar Republic's economic crisis (hyperinflation)",
+        "imagePrompt": "A historical illustration representing Weimar Republic's economic crisis (hyperinflation). Era: Ch 3: Nazism and the Rise of Hitler, Year: 1923 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "132": {
+        "title": "Beer Hall Putsch (1923) and Mein Kampf",
+        "imagePrompt": "A historical illustration representing Beer Hall Putsch (1923) and Mein Kampf. Era: Ch 3: Nazism and the Rise of Hitler, Year: 8–9 November 1923 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "133": {
+        "title": "Mahad Satyagraha (1927) for temple entry and water rights",
+        "imagePrompt": "A historical illustration representing Mahad Satyagraha (1927) for temple entry and water rights. Era: Ch 7: Women, Caste and Reform, Year: 1927 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "water"
+    },
+    "134": {
+        "title": "Lahore Congress (1929): Purna Swaraj",
+        "imagePrompt": "A historical illustration representing Lahore Congress (1929): Purna Swaraj. Era: Ch 2: Nationalism in India, Year: 31 December 1929 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "135": {
+        "title": "Dandi March (12 March 1930)",
+        "imagePrompt": "A historical illustration representing Dandi March (12 March 1930). Cause: Failure of Simon Commission (1928), rejection of Nehru Report (1928), and Lahore Congress demand for Purna Swaraj Era: Ch 2: Nationalism in India, Year: 12 March 1930 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "crowd"
+    },
+    "136": {
+        "title": "Dandi March and Salt Satyagraha (1930)",
+        "imagePrompt": "A historical illustration representing Dandi March and Salt Satyagraha (1930). Era: Ch 8: The Making of the National Movement, Year: 12 March – 6 April 1930 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "crowd"
+    },
+    "137": {
+        "title": "Gandhi-Irwin Pact and Round Table Conferences",
+        "imagePrompt": "A historical illustration representing Gandhi-Irwin Pact and Round Table Conferences. Era: Ch 8: The Making of the National Movement, Year: 1931 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "138": {
+        "title": "Gandhi-Irwin Pact (1931) and movement end",
+        "imagePrompt": "A historical illustration representing Gandhi-Irwin Pact (1931) and movement end. Era: Ch 2: Nationalism in India, Year: 5 March 1931 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "139": {
+        "title": "Poona Pact (1932) and reserved seats",
+        "imagePrompt": "A historical illustration representing Poona Pact (1932) and reserved seats. Era: Ch 7: Women, Caste and Reform, Year: 1932 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "water"
+    },
+    "140": {
+        "title": "1933: Hitler becomes Chancellor",
+        "imagePrompt": "A historical illustration representing 1933: Hitler becomes Chancellor. Cause: Great Depression (1929), fear of communism, and political maneuvering by conservative elites. Effect: Enabling Ac Era: Ch 3: Nazism and the Rise of Hitler, Year: 30 January 1933 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "141": {
+        "title": "Anti-Semitism and Nuremberg Laws (1935)",
+        "imagePrompt": "A historical illustration representing Anti-Semitism and Nuremberg Laws (1935). Era: Ch 3: Nazism and the Rise of Hitler, Year: 15 September 1935 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "142": {
+        "title": "Kristallnacht (1938)",
+        "imagePrompt": "A historical illustration representing Kristallnacht (1938). Era: Ch 3: Nazism and the Rise of Hitler, Year: 9–10 November 1938 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "143": {
+        "title": "World War II (1939-45)",
+        "imagePrompt": "A historical illustration representing World War II (1939-45). Era: Ch 3: Nazism and the Rise of Hitler, Year: 1 September 1939 – 2 September 1945 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "144": {
+        "title": "Failure of Cripps Mission (1942)",
+        "imagePrompt": "A historical illustration representing Failure of Cripps Mission (1942). Era: Ch 2: Nationalism in India, Year: March 1942 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "145": {
+        "title": "'Do or Die' speech and mass protests",
+        "imagePrompt": "A historical illustration representing 'Do or Die' speech and mass protests. Era: Ch 8: The Making of the National Movement, Year: 8 August 1942 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "146": {
+        "title": "'Quit India' resolution (August 1942)",
+        "imagePrompt": "A historical illustration representing 'Quit India' resolution (August 1942). Cause: Failure of Cripps Mission (1942), fear of Japanese invasion during WWII, and British refusal to grant immediate s Era: Ch 2: Nationalism in India, Year: 8 August 1942 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "147": {
+        "title": "Underground activities and parallel governments",
+        "imagePrompt": "A historical illustration representing Underground activities and parallel governments. Era: Ch 8: The Making of the National Movement, Year: 1942–1944 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "148": {
+        "title": "Massive repression and underground activities",
+        "imagePrompt": "A historical illustration representing Massive repression and underground activities. Era: Ch 2: Nationalism in India, Year: 1942–1944 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "149": {
+        "title": "Formation of Azad Hind Fauj (1943)",
+        "imagePrompt": "A historical illustration representing Formation of Azad Hind Fauj (1943). Era: Ch 8: The Making of the National Movement, Year: 1943 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "150": {
+        "title": "Bretton Woods system (IMF, World Bank)",
+        "imagePrompt": "A historical illustration representing Bretton Woods system (IMF, World Bank). Era: Ch 3: The Making of a Global World, Year: 1944 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "151": {
+        "title": "Hitler's suicide and Germany's surrender (1945)",
+        "imagePrompt": "A historical illustration representing Hitler's suicide and Germany's surrender (1945). Cause: Allied advance from east (Soviet Union) and west (USA, UK, France); Battle of Stalingrad (1942-43) defeat. Effect Era: Ch 3: Nazism and the Rise of Hitler, Year: 30 April – 7 May 1945 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "152": {
+        "title": "INA trials and naval mutiny (1946)",
+        "imagePrompt": "A historical illustration representing INA trials and naval mutiny (1946). Era: Ch 8: The Making of the National Movement, Year: 1946 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "153": {
+        "title": "Mountbatten Plan (June 1947)",
+        "imagePrompt": "A historical illustration representing Mountbatten Plan (June 1947). Era: Ch 8: The Making of the National Movement, Year: 3 June 1947 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "154": {
+        "title": "Partition violence and refugees",
+        "imagePrompt": "A historical illustration representing Partition violence and refugees. Cause: Mountbatten Plan (3 June 1947) announced Partition of India on religious lines. Effect: One of the largest mass m Era: Ch 8: The Making of the National Movement, Year: August 1947 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "155": {
+        "title": "India's independence (15 August 1947)",
+        "imagePrompt": "A historical illustration representing India's independence (15 August 1947). Era: Ch 8: The Making of the National Movement, Year: 15 August 1947 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "156": {
+        "title": "Storming of the Bastille (14 July 1789)",
+        "imagePrompt": "A historical illustration representing Storming of the Bastille (14 July 1789). Cause: Famine, unemployment, fear of royal troops, and search for gunpowder. Effect: Symbol of popular uprising; led to  Era: Ch 1: The French Revolution, Year: 14 July 1789 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "clouds"
+    },
+    "157": {
+        "title": "Great Fear in the countryside",
+        "imagePrompt": "A historical illustration representing Great Fear in the countryside. Era: Ch 1: The French Revolution, Year: July–August 1789 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "158": {
+        "title": "'Men are born free and equal'",
+        "imagePrompt": "A historical illustration representing 'Men are born free and equal'. Cause: The storming of the Bastille and popular pressure on the National Assembly. Effect: Established constitutional pr Era: Ch 1: The French Revolution, Year: 26 August 1789 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "159": {
+        "title": "Women's march to Versailles",
+        "imagePrompt": "A historical illustration representing Women's march to Versailles. Era: Ch 1: The French Revolution, Year: 5 October 1789 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "crowd"
+    },
+    "160": {
+        "title": "Olympe de Gouges and Declaration of Rights of Women",
+        "imagePrompt": "A historical illustration representing Olympe de Gouges and Declaration of Rights of Women. Era: Ch 1: The French Revolution, Year: 1791 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "161": {
+        "title": "Execution of Louis XVI (1793)",
+        "imagePrompt": "A historical illustration representing Execution of Louis XVI (1793). Cause: Discovery of Louis XVI's secret correspondence with foreign powers; fear of counter-revolution. Effect: Radicaliz Era: Ch 1: The French Revolution, Year: 21 January 1793 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "162": {
+        "title": "Reign of Terror under Robespierre",
+        "imagePrompt": "A historical illustration representing Reign of Terror under Robespierre. Era: Ch 1: The French Revolution, Year: 1793–1794 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "163": {
+        "title": "Directory and political instability",
+        "imagePrompt": "A historical illustration representing Directory and political instability. Era: Ch 1: The French Revolution, Year: 1795–1799 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "164": {
+        "title": "Coup of 18 Brumaire (1799)",
+        "imagePrompt": "A historical illustration representing Coup of 18 Brumaire (1799). Cause: Political instability of the Directory, military failures, and popular desire for strong leadership. Effect: Napo Era: Ch 1: The French Revolution, Year: 9 November 1799 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "165": {
+        "title": "Napoleonic Code and administrative reforms",
+        "imagePrompt": "A historical illustration representing Napoleonic Code and administrative reforms. Era: Ch 1: The French Revolution, Year: 1804 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "166": {
+        "title": "Decolonization and new nations",
+        "imagePrompt": "A historical illustration representing Decolonization and new nations. Era: Ch 3: The Making of a Global World, Year: 1945–1975 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "167": {
+        "title": "Globalization and WTO formation",
+        "imagePrompt": "A historical illustration representing Globalization and WTO formation. Era: Ch 3: The Making of a Global World, Year: 1 January 1995 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "168": {
+        "title": "Mahatma Gandhi (satyagraha, non-violence)",
+        "imagePrompt": "A historical illustration representing Mahatma Gandhi (satyagraha, non-violence). Era: Ch 2: Nationalism in India, Year: 1869–1948 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "169": {
+        "title": "Jawaharlal Nehru (socialism, secularism)",
+        "imagePrompt": "A historical illustration representing Jawaharlal Nehru (socialism, secularism). Era: Ch 2: Nationalism in India, Year: 1889–1964 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "170": {
+        "title": "Subhas Chandra Bose (INA, armed struggle)",
+        "imagePrompt": "A historical illustration representing Subhas Chandra Bose (INA, armed struggle). Era: Ch 2: Nationalism in India, Year: 1897–1945 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "171": {
+        "title": "Rediscovery of India's past (Bharat Mata, Vande Mataram)",
+        "imagePrompt": "A historical illustration representing Rediscovery of India's past (Bharat Mata, Vande Mataram). Era: Ch 2: Nationalism in India, Year: 1870s–1900s CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "172": {
+        "title": "Industrial Revolution and factory production",
+        "imagePrompt": "A historical illustration representing Industrial Revolution and factory production. Era: Ch 3: The Making of a Global World, Year: 1760–1840 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "173": {
+        "title": "Colonialism: raw materials to Europe, finished goods to colonies",
+        "imagePrompt": "A historical illustration representing Colonialism: raw materials to Europe, finished goods to colonies. Cause: Industrial Revolution created demand for raw cotton, indigo, tea, and market for machine-made goods. Effect: Dein Era: Ch 3: The Making of a Global World, Year: 19th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "174": {
+        "title": "Post-World War I economic collapse",
+        "imagePrompt": "A historical illustration representing Post-World War I economic collapse. Era: Ch 3: The Making of a Global World, Year: 1918–1922 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "175": {
+        "title": "Great Depression (1929-1930s) and impact on India",
+        "imagePrompt": "A historical illustration representing Great Depression (1929-1930s) and impact on India. Cause: US stock market crash (1929), overproduction, agricultural price collapse. Effect: Indian agricultural prices fel Era: Ch 3: The Making of a Global World, Year: 1929–1939 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "176": {
+        "title": "Deindustrialization of Indian textiles",
+        "imagePrompt": "A historical illustration representing Deindustrialization of Indian textiles. Cause: British industrial revolution produced cheap machine-made cloth; high tariffs on Indian cloth in Britain. Effect: Era: Ch 4: The Age of Industrialisation, Year: 19th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "177": {
+        "title": "Indian mills (Bombay, Ahmedabad) and competition",
+        "imagePrompt": "A historical illustration representing Indian mills (Bombay, Ahmedabad) and competition. Era: Ch 4: The Age of Industrialisation, Year: 1854–1900 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "explosion"
+    },
+    "178": {
+        "title": "Swadeshi and boycott of foreign cloth",
+        "imagePrompt": "A historical illustration representing Swadeshi and boycott of foreign cloth. Era: Ch 4: The Age of Industrialisation, Year: 1905–1911 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "179": {
+        "title": "Vernacular newspapers and magazines",
+        "imagePrompt": "A historical illustration representing Vernacular newspapers and magazines. Era: Ch 5: Print Culture and the Modern World, Year: 19th century. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "180": {
+        "title": "Red Army vs White Army (1918-1921)",
+        "imagePrompt": "A historical illustration representing Red Army vs White Army (1918-1921). Era: Ch 2: Socialism in Europe and Russian Revolution, Year: 1918–1921 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "181": {
+        "title": "Formation of Union of Soviet Socialist Republics (1922)",
+        "imagePrompt": "A historical illustration representing Formation of Union of Soviet Socialist Republics (1922). Era: Ch 2: Socialism in Europe and Russian Revolution, Year: 30 December 1922 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "182": {
+        "title": "Five-Year Plans for rapid industrialization",
+        "imagePrompt": "A historical illustration representing Five-Year Plans for rapid industrialization. Era: Ch 2: Socialism in Europe and Russian Revolution, Year: 1928–1941 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "183": {
+        "title": "Collectivization of agriculture and kulak persecution",
+        "imagePrompt": "A historical illustration representing Collectivization of agriculture and kulak persecution. Cause: Need to industrialize rapidly and extract grain for urban workers. Effect: Forced consolidation of farms into col Era: Ch 2: Socialism in Europe and Russian Revolution, Year: 1928–1933 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "184": {
+        "title": "Food shortages and strikes in Petrograd",
+        "imagePrompt": "A historical illustration representing Food shortages and strikes in Petrograd. Era: Ch 2: Socialism in Europe and Russian Revolution, Year: 23–27 February 1917 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "185": {
+        "title": "Abdication of Tsar and Provisional Government",
+        "imagePrompt": "A historical illustration representing Abdication of Tsar and Provisional Government. Cause: World War I casualties, food and fuel shortages, Tsar's absence at war front. Effect: Tsar Nicholas II abdicated  Era: Ch 2: Socialism in Europe and Russian Revolution, Year: 2 March 1917 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "186": {
+        "title": "Lenin's April Theses ('Peace, Land, Bread')",
+        "imagePrompt": "A historical illustration representing Lenin's April Theses ('Peace, Land, Bread'). Era: Ch 2: Socialism in Europe and Russian Revolution, Year: April 1917 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "auto"
+    },
+    "187": {
+        "title": "Bolshevik takeover of Winter Palace",
+        "imagePrompt": "A historical illustration representing Bolshevik takeover of Winter Palace. Cause: Provisional Government's failure to end war or distribute land; Lenin's April Theses ('Peace, Land, Bread'). Effe Era: Ch 2: Socialism in Europe and Russian Revolution, Year: 25–26 October 1917 CE. Cinematic lighting, oil painting illustration style, highly detailed, masterwork.",
+        "animation": "snow"
+    }
+}

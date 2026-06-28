@@ -3,78 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Portal: Lab Image Creator | CBSE History Museum</title>
+    <title>Teacher Creator Portal | CBSE History Museum</title>
     <link rel="stylesheet" href="timeline.css">
     <style>
-        .admin-layout {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 25px;
-            padding: 90px 20px 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-            min-height: 100vh;
+        :root {
+            --bg-darker: #080a10;
+            --bg-card: rgba(18, 22, 35, 0.7);
+            --border-glow: rgba(255, 152, 0, 0.2);
+            --emerald: #10b981;
+            --crimson: #ef4444;
+            --amber: #f59e0b;
         }
 
-        @media (max-width: 900px) {
+        body {
+            background: radial-gradient(circle at top left, #0e1324, #05060b);
+            color: #f3f4f6;
+            margin-top: 70px;
+        }
+
+        /* Top Bar Enhancements */
+        .mode-toggle-bar {
+            border-bottom: 2px solid var(--amber);
+            background: rgba(8, 10, 16, 0.95);
+        }
+
+        .server-status-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .status-online { background-color: var(--emerald); box-shadow: 0 0 8px var(--emerald); }
+        .status-offline { background-color: var(--crimson); box-shadow: 0 0 8px var(--crimson); }
+
+        /* Main Tabs Navigation */
+        .admin-nav {
+            display: flex;
+            gap: 15px;
+            max-width: 1400px;
+            margin: 25px auto 5px;
+            padding: 0 20px;
+        }
+
+        .tab-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #9ca3af;
+            padding: 10px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #d97706, #b45309);
+            color: white;
+            border-color: var(--amber);
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+        }
+
+        /* Layout Structure */
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            gap: 25px;
+            padding: 15px 20px 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: calc(100vh - 150px);
+        }
+
+        @media (max-width: 1024px) {
             .admin-layout {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Left Side: Sidebar list */
+        /* Sidebar styling */
         .sidebar {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 20px;
             display: flex;
             flex-direction: column;
-            height: calc(100vh - 140px);
+            height: calc(100vh - 190px);
             position: sticky;
             top: 90px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        .sidebar-header {
-            margin-bottom: 15px;
-        }
-
-        .sidebar-header h2 {
-            font-size: 1.2rem;
-            color: #ff9800;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
+        .sidebar-mode-toggle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 8px;
-        }
-
-        .sidebar-search {
-            width: 100%;
-            padding: 10px 15px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.05);
-            color: white;
-            outline: none;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .sidebar-search::placeholder {
-            color: #888;
-        }
-
-        .sidebar-filter {
-            width: 100%;
-            padding: 8px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            background: rgba(20, 20, 20, 0.9);
-            color: white;
-            outline: none;
+            background: rgba(0,0,0,0.3);
+            padding: 4px;
+            border-radius: 10px;
             margin-bottom: 15px;
-            font-size: 13px;
+        }
+
+        .mode-select-btn {
+            background: transparent;
+            border: none;
+            color: #9ca3af;
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .mode-select-btn.active {
+            background: rgba(255,255,255,0.08);
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
         .events-list {
@@ -86,212 +149,258 @@
             padding-right: 5px;
         }
 
+        /* List Items */
         .event-item-btn {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 12px;
-            text-align: left;
+            border-radius: 12px;
+            padding: 12px 15px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
             color: white;
             cursor: pointer;
             transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
         }
 
         .event-item-btn:hover {
-            background: rgba(255, 152, 0, 0.1);
-            border-color: rgba(255, 152, 0, 0.3);
+            background: rgba(255, 152, 0, 0.08);
+            border-color: rgba(255, 152, 0, 0.2);
         }
 
         .event-item-btn.active {
-            background: rgba(255, 152, 0, 0.2);
-            border-color: #ff9800;
-            box-shadow: 0 0 10px rgba(255, 152, 0, 0.2);
+            background: rgba(255, 152, 0, 0.15);
+            border-color: var(--amber);
+            box-shadow: 0 0 12px rgba(255, 152, 0, 0.25);
+        }
+
+        .checkbox-container {
+            display: none;
+            pointer-events: none;
+        }
+        .batch-mode .checkbox-container {
+            display: block;
+        }
+
+        .event-details-text {
+            flex-grow: 1;
         }
 
         .event-item-title {
-            font-weight: bold;
-            font-size: 14px;
+            font-weight: 600;
+            font-size: 13.5px;
             line-height: 1.3;
+            margin-bottom: 4px;
         }
 
         .event-item-meta {
             font-size: 11px;
-            color: #aaa;
+            color: #9ca3af;
             display: flex;
             justify-content: space-between;
-            align-items: center;
         }
 
+        /* Status colors */
         .status-indicator {
-            font-size: 10px;
+            font-size: 9.5px;
             padding: 2px 6px;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: bold;
         }
+        .status-fallback { background: rgba(255, 255, 255, 0.06); color: #ccc; }
+        .status-custom { background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid var(--emerald); }
 
-        .status-fallback {
-            background: rgba(255, 255, 255, 0.1);
-            color: #ccc;
-        }
-
-        .status-custom {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4caf50;
-            border: 1px solid #4caf50;
-        }
-
-        /* Right Side: Creator Panel */
-        .creator-panel {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
+        /* Main Workspace Panels */
+        .workspace-panel {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
             border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             padding: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
+            min-height: calc(100vh - 190px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: none;
         }
 
-        .welcome-view {
-            text-align: center;
-            padding: 80px 20px;
-            display: flex;
-            flex-direction: column;
+        .workspace-panel.active {
+            display: block;
+        }
+
+        /* Alerts */
+        .alert-box {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid var(--crimson);
+            color: #fca5a5;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            display: none;
             align-items: center;
-            justify-content: center;
-            gap: 15px;
+            gap: 10px;
         }
 
-        .welcome-view h2 {
-            color: #ff9800;
-            font-size: 1.8rem;
-        }
-
-        .welcome-view p {
-            color: #aaa;
-            max-width: 500px;
-            line-height: 1.6;
-        }
-
+        /* Grid components */
         .creator-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 30px;
         }
 
-        @media (max-width: 1100px) {
+        @media (max-width: 1150px) {
             .creator-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        .preview-column {
+        /* Preview container */
+        .preview-pane {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
-        .form-column {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        /* Preview Card */
         .preview-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
             position: relative;
         }
 
-        .preview-image-box {
-            width: 100%;
-            height: 250px;
-            position: relative;
-            background: #111;
-            overflow: hidden;
+        .preview-images-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            height: 240px;
+            background: #000;
         }
 
-        .preview-image {
+        .image-half {
+            position: relative;
+            height: 100%;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .image-half:last-child {
+            border-right: none;
+        }
+
+        .image-half img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
         }
 
-        .preview-image.animate {
-            animation: kenburns 20s infinite ease-in-out;
-        }
-
-        .badge-ai-indicator {
+        .half-label {
             position: absolute;
-            top: 15px;
-            left: 15px;
-            background: linear-gradient(45deg, #4caf50, #8bc34a);
-            color: white;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
             padding: 4px 10px;
-            border-radius: 12px;
+            border-radius: 6px;
             font-size: 10px;
             font-weight: bold;
-            z-index: 10;
-        }
-
-        .badge-fallback-indicator {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(0, 0, 0, 0.7);
-            color: #bbb;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 10px;
-            font-weight: bold;
-            z-index: 10;
+            letter-spacing: 0.5px;
         }
 
         .preview-details {
             padding: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .preview-details .title {
-            font-size: 1.3rem;
+            font-size: 20px;
             font-weight: bold;
+            color: var(--amber);
             margin-bottom: 6px;
-            color: #ff9800;
         }
 
-        .preview-details .sub {
-            font-size: 0.85rem;
-            color: #aaa;
-            margin-bottom: 12px;
+        .preview-details .meta {
+            color: #9ca3af;
+            font-size: 13px;
+            margin-bottom: 15px;
         }
 
-        .preview-metadata {
+        .preview-details .pills {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
-        .meta-pill {
-            background: rgba(255, 255, 255, 0.08);
+        .pills .pill {
+            background: rgba(255,255,255,0.06);
             padding: 4px 10px;
             border-radius: 8px;
             font-size: 11px;
-            color: #ddd;
         }
 
-        /* Form fields */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .action-buttons button, .btn-primary, .btn-secondary {
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 13.5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff9800, #f57c00);
+            color: #080a10;
+            border: none;
+            flex-grow: 2;
+        }
+        .btn-primary:hover:not(:disabled) {
+            background: linear-gradient(135deg, #ffb74d, #ffa726);
+            box-shadow: 0 0 15px rgba(255, 152, 0, 0.4);
+            transform: translateY(-1px);
+        }
+        .btn-primary:disabled {
+            background: #374151;
+            color: #6b7280;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.15);
+            flex-grow: 1;
+        }
+        .btn-secondary:hover:not(:disabled) {
+            background: rgba(255,255,255,0.1);
+        }
+        .btn-secondary:disabled {
+            background: rgba(255,255,255,0.01);
+            color: #4b5563;
+            border-color: rgba(255,255,255,0.05);
+            cursor: not-allowed;
+        }
+
+        .btn-danger {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid var(--crimson);
+            color: #fca5a5;
+        }
+        .btn-danger:hover:not(:disabled) {
+            background: rgba(239, 68, 68, 0.2);
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+        }
+
+        /* Controls Panel */
+        .controls-pane {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         .form-group {
             display: flex;
             flex-direction: column;
@@ -299,196 +408,274 @@
         }
 
         .form-group label {
-            font-size: 0.9rem;
+            font-size: 12px;
             font-weight: bold;
-            color: #ff9800;
+            color: var(--amber);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .form-input {
             width: 100%;
-            padding: 12px;
+            padding: 12px 16px;
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(0, 0, 0, 0.4);
             color: white;
             font-size: 14px;
             outline: none;
-            transition: border-color 0.2s;
+            transition: all 0.2s;
         }
 
         .form-input:focus {
-            border-color: #ff9800;
+            border-color: var(--amber);
+            box-shadow: 0 0 8px rgba(255, 152, 0, 0.15);
         }
 
         textarea.form-input {
-            height: 100px;
+            height: 110px;
             resize: vertical;
             line-height: 1.5;
         }
 
-        /* Generation modes selectors */
-        .mode-selectors {
+        /* Style Selectors */
+        .mode-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 12px;
         }
 
-        .mode-option {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .mode-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
             border-radius: 12px;
-            padding: 12px 10px;
+            padding: 12px;
             cursor: pointer;
             text-align: center;
             transition: all 0.2s;
+        }
+        .mode-card:hover {
+            background: rgba(255,152,0,0.04);
+            border-color: rgba(255,152,0,0.2);
+        }
+        .mode-card.active {
+            background: rgba(255,152,0,0.12);
+            border-color: var(--amber);
+            box-shadow: 0 0 10px rgba(255,152,0,0.15);
+        }
+        .mode-card .icon { font-size: 18px; margin-bottom: 4px; display: block; }
+        .mode-card .title { font-size: 11px; font-weight: bold; display: block; }
+        .mode-card .sub { font-size: 9px; color: #9ca3af; display: block; margin-top: 2px; }
+
+        /* Progress Steps */
+        .progress-stepper {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .step-node {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 6px;
-        }
-
-        .mode-option:hover {
-            background: rgba(255, 152, 0, 0.05);
-            border-color: rgba(255, 152, 0, 0.3);
-        }
-
-        .mode-option.active {
-            background: rgba(255, 152, 0, 0.15);
-            border-color: #ff9800;
-            box-shadow: 0 0 10px rgba(255, 152, 0, 0.15);
-        }
-
-        .mode-option .icon {
-            font-size: 1.3rem;
-        }
-
-        .mode-option .title {
-            font-weight: bold;
-            font-size: 11px;
-            color: white;
-        }
-
-        .mode-option .sub {
-            font-size: 9px;
-            color: #aaa;
-        }
-
-        /* Actions */
-        .actions-row {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-primary {
-            flex: 2;
-            background: #ff9800;
-            color: #1a1a2e;
-            border: none;
-            padding: 14px 20px;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .btn-primary:hover:not(:disabled) {
-            background: #ffb74d;
-            box-shadow: 0 0 15px rgba(255, 152, 0, 0.4);
-            transform: translateY(-1px);
-        }
-
-        .btn-primary:disabled {
-            background: #555;
-            color: #888;
-            cursor: not-allowed;
-        }
-
-        .btn-secondary {
             flex: 1;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: white;
-            padding: 14px 20px;
-            border-radius: 12px;
+            position: relative;
+        }
+
+        .step-node::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.05);
+            z-index: 1;
+        }
+        .step-node:last-child::after { display: none; }
+
+        .step-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #27272a;
+            border: 2px solid #3f3f46;
+            z-index: 2;
+            transition: all 0.3s;
+        }
+
+        .step-label {
+            font-size: 9px;
+            color: #71717a;
             font-weight: bold;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            text-transform: uppercase;
         }
 
-        .btn-secondary:hover:not(:disabled) {
-            background: rgba(255, 255, 255, 0.15);
+        /* Active/completed steps */
+        .step-node.active .step-dot {
+            background: var(--amber);
+            border-color: #fef08a;
+            box-shadow: 0 0 10px var(--amber);
+        }
+        .step-node.active .step-label { color: var(--amber); }
+
+        .step-node.completed .step-dot {
+            background: var(--emerald);
+            border-color: #a7f3d0;
+            box-shadow: 0 0 10px var(--emerald);
+        }
+        .step-node.completed .step-label { color: var(--emerald); }
+        .step-node.completed::after { background: var(--emerald); }
+
+        .progress-bar-container {
+            height: 6px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: none;
         }
 
-        /* Progress terminal */
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--amber), var(--emerald));
+            transition: width 0.3s ease;
+        }
+
+        /* Terminal Logs */
         .terminal-box {
-            background: #080810;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #04060a;
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            padding: 15px;
+            padding: 16px;
             font-family: 'Courier New', Courier, monospace;
             font-size: 12px;
-            height: 120px;
+            height: 140px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 5px;
-            color: #a5d6a7;
+            gap: 6px;
+            color: #a7f3d0;
         }
+        .terminal-box .error-log { color: #fca5a5; }
+        .terminal-box .info-log { color: #fde047; }
 
-        .terminal-box .error-log {
-            color: #ef5350;
-        }
-
-        .terminal-box .info-log {
-            color: #ffb74d;
-        }
-
-        .doc-panel {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 12px;
-            border: 1px dashed rgba(255, 255, 255, 0.15);
-            padding: 20px;
-        }
-
-        .doc-panel h3 {
-            color: #ff9800;
-            font-size: 0.95rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .doc-panel ul {
-            padding-left: 20px;
+        /* Batch Mode Panel Styling */
+        .batch-workspace {
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            font-size: 12px;
-            color: #ccc;
-            line-height: 1.5;
+            gap: 25px;
         }
 
-        .doc-panel code {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #ffe0b2;
-            font-family: monospace;
+        .batch-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
         }
+
+        .stat-card {
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .stat-card .value {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--amber);
+        }
+
+        .stat-card .label {
+            font-size: 11px;
+            color: #9ca3af;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* Prompt Library Layout */
+        .prompt-table-container {
+            max-height: calc(100vh - 250px);
+            overflow-y: auto;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+        }
+
+        .prompt-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .prompt-table th, .prompt-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .prompt-table th {
+            background: rgba(0,0,0,0.4);
+            color: var(--amber);
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+        }
+
+        .prompt-table tr:hover td {
+            background: rgba(255,255,255,0.01);
+        }
+
+        /* Settings fields */
+        .settings-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* Log tables */
+        .log-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: calc(100vh - 250px);
+            overflow-y: auto;
+        }
+
+        .log-item {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .log-item.error { border-left: 4px solid var(--crimson); }
+        .log-item.performance { border-left: 4px solid var(--emerald); }
+        .log-item.request { border-left: 4px solid var(--amber); }
+
     </style>
 </head>
 <body>
 
+    <!-- Header bar with live server status -->
     <div class="mode-toggle-bar">
         <div class="logo">🏛️ CBSE HISTORY MUSEUM <span>Teacher Lab Panel</span></div>
+        
+        <div class="server-status-pill">
+            <span class="status-dot status-offline" id="headerStatusDot"></span>
+            <span id="headerStatusText">Fooocus Server: Offline</span>
+        </div>
+
         <div class="mode-buttons">
             <a href="index.html" class="mode-btn">📅 TIMELINE VIEW</a>
             <a href="admin.html" class="mode-btn active">👨‍🏫 TEACHER PORTAL</a>
@@ -496,20 +683,37 @@
         </div>
     </div>
 
+    <!-- Navigation Tabs -->
+    <nav class="admin-nav">
+        <button class="tab-btn active" data-target="tabCreator">🎨 Creator Studio</button>
+        <button class="tab-btn" data-target="tabPrompts">📚 AI Prompt Library</button>
+        <button class="tab-btn" data-target="tabSettings">⚙️ Global Settings</button>
+        <button class="tab-btn" data-target="tabLogs">📜 System Logs</button>
+    </nav>
+
     <div class="admin-layout">
-        <!-- Left: Event Selector Sidebar -->
-        <aside class="sidebar">
+        <!-- Left Sidebar: Event List -->
+        <aside class="sidebar" id="sidebarContainer">
             <div class="sidebar-header">
-                <h2>📁 Select History Event</h2>
-                <input type="text" id="eventSearch" class="sidebar-search" placeholder="🔍 Filter list by title...">
-                <select id="gradeFilter" class="sidebar-filter">
-                    <option value="all">📚 All Grades</option>
-                    <option value="Grade 6">📘 Grade 6</option>
-                    <option value="Grade 7">📙 Grade 7</option>
-                    <option value="Grade 8">📕 Grade 8</option>
-                    <option value="Grade 9">📗 Grade 9</option>
-                    <option value="Grade 10">📓 Grade 10</option>
-                </select>
+                <div class="sidebar-mode-toggle">
+                    <button class="mode-select-btn active" id="btnSingleMode">Single Event</button>
+                    <button class="mode-select-btn" id="btnBatchMode">Batch Select</button>
+                </div>
+                <input type="text" id="eventSearch" class="sidebar-search" placeholder="🔍 Search curriculum..." style="border-radius: 10px; margin-bottom: 8px; padding: 10px;">
+                
+                <div style="display:flex; gap: 8px; margin-bottom: 12px;">
+                    <select id="gradeFilter" class="sidebar-filter" style="margin-bottom: 0; flex-grow: 1; border-radius: 10px;">
+                        <option value="all">📚 All Grades</option>
+                        <option value="Grade 6">Grade 6</option>
+                        <option value="Grade 7">Grade 7</option>
+                        <option value="Grade 8">Grade 8</option>
+                        <option value="Grade 9">Grade 9</option>
+                        <option value="Grade 10">Grade 10</option>
+                    </select>
+                    
+                    <button class="btn-secondary" id="btnSelectAll" style="display:none; padding: 4px 10px; font-size:11px; border-radius:8px;">All</button>
+                    <button class="btn-secondary" id="btnClearAll" style="display:none; padding: 4px 10px; font-size:11px; border-radius:8px;">None</button>
+                </div>
             </div>
             
             <div class="events-list" id="eventsListContainer">
@@ -517,399 +721,1130 @@
             </div>
         </aside>
 
-        <!-- Right: Generator Panel -->
-        <main class="creator-panel" id="creatorPanel">
-            <div class="welcome-view" id="welcomeView">
-                <h2>👨‍🏫 Welcome to the Computer Lab Image Generator Portal</h2>
-                <p>This workspace is designed to allow teachers to customize, generate, and animate illustrations for any of the 187 curriculum events using stable diffusion AI models.</p>
-                <p style="font-size: 13px;">Select an event from the left sidebar to generate images directly on the lab server using Fooocus.</p>
-            </div>
-
-            <div id="editorContent" style="display: none;">
-                <div class="creator-grid">
-                    <!-- Column 1: Live Preview -->
-                    <section class="preview-column">
-                        <div class="preview-card">
-                            <div id="imageStatusBadge" class="badge-fallback-indicator">CLOCK FALLBACK</div>
-                            <div class="preview-image-box">
-                                <img id="currentImagePreview" src="images/history_fallback.gif" class="preview-image animate" alt="Preview Image">
-                            </div>
-                            <div class="preview-details">
-                                <div id="previewTitle" class="title">Event Title</div>
-                                <div id="previewSubtitle" class="sub">Subtitle | Chapter Info</div>
-                                <div class="preview-metadata">
-                                    <span id="previewGrade" class="meta-pill">Grade 6</span>
-                                    <span id="previewYear" class="meta-pill">c. 3000 BCE</span>
-                                    <span id="previewLocation" class="meta-pill">Location</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Live Details Page view -->
-                        <a id="liveLinkBtn" href="#" target="_blank" class="btn-secondary" style="text-align: center; text-decoration: none;">
-                            👁️ View Live in Museum Details
-                        </a>
-
-                        <div class="doc-panel">
-                            <h3>⚡ How to set up Fooocus in your Lab</h3>
-                            <ul>
-                                <li>Ensure the Fooocus server is running on the lab network (typically: <code>http://127.0.0.1:7865</code>).</li>
-                                <li>Make sure API access is enabled. If you use a customized Fooocus API server wrapper, specify the host IP in the form.</li>
-                                <li>Use **Cloud Mode (Pollinations)** to test and play without running Fooocus locally.</li>
-                                <li>The server will automatically crop, downscale, compile a high-quality Ken Burns panning motion GIF, and update <code>events_data.json</code> instantly!</li>
-                            </ul>
-                        </div>
-                    </section>
-
-                    <!-- Column 2: Generator controls -->
-                    <section class="form-column">
-                        <div class="form-group">
-                            <label>1. Prompt Generator</label>
-                            <textarea id="promptInput" class="form-input" placeholder="Type image prompt..."></textarea>
-                            <span style="font-size: 11px; color: #888;">Feel free to customize the historical setting, color palette, or artistic style (e.g. oil painting, ancient sculpture, cinematic).</span>
-                        </div>
-
-                        <div class="form-group">
-                            <label>2. Image Generator Mode</label>
-                            <div class="mode-selectors">
-                                <div class="mode-option active" data-mode="fooocus">
-                                    <span class="icon">💻</span>
-                                    <span class="title">Fooocus Local</span>
-                                    <span class="sub">Lab Server (Gradio)</span>
-                                </div>
-                                <div class="mode-option" data-mode="pollinations">
-                                    <span class="icon">☁️</span>
-                                    <span class="title">Pollinations</span>
-                                    <span class="sub">Cloud (No GPU needed)</span>
-                                </div>
-                                <div class="mode-option" data-mode="procedural">
-                                    <span class="icon">🎴</span>
-                                    <span class="title">Procedural</span>
-                                    <span class="sub">Text Display Card</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>3. Animation Effect</label>
-                            <select id="animationEffect" class="form-input">
-                                <option value="auto" selected>✨ Auto-Detect (Based on Image Content)</option>
-                                <option value="kenburns">🎬 Ken Burns (Zoom & Pan)</option>
-                                <option value="fire">🔥 Campfire Burn (Flickering & Sparks)</option>
-                                <option value="wheel">🌀 Spinning Wheel (Rotation)</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group" id="hostUrlGroup">
-                            <label>4. Local Fooocus Server URL</label>
-                            <input type="text" id="hostUrl" class="form-input" value="http://127.0.0.1:7865">
-                        </div>
-
-                        <div class="form-group">
-                            <label>5. Compilation Console</label>
-                            <div class="terminal-box" id="terminalLogs">
-                                <div>Console ready. Select generating method and click submit.</div>
-                            </div>
-                        </div>
-
-                        <div class="actions-row">
-                            <button id="btnGenerate" class="btn-primary">
-                                🎨 Generate Animated GIF
-                            </button>
-                            <button id="btnReset" class="btn-secondary" style="border-color: #ef5350; color: #ef5350;">
-                                🔄 Reset to Default
-                            </button>
-                        </div>
-                    </section>
+        <!-- Right Workspace: Multi-panels (Tabs) -->
+        <main style="flex-grow: 1;">
+            
+            <!-- Alert Banner for connection status -->
+            <div class="alert-box" id="offlineAlert">
+                <span>⚠️</span>
+                <div style="flex-grow: 1;">
+                    <strong>AI Image Server is offline.</strong> Please ask the computer lab administrator to start the local Fooocus server. Alternatively, switch the Generator Mode below to <strong>Cloud (Pollinations)</strong>.
                 </div>
             </div>
-        </main>
-    </div>
 
-    <script>
-        let allEvents = [];
-        let selectedEvent = null;
-        let currentMode = "fooocus";
+            <!-- Tab 1: Creator Studio -->
+            <section class="workspace-panel active" id="tabCreator">
+                <!-- Welcome screen when nothing is selected -->
+                <div class="welcome-view" id="welcomeView" style="padding: 100px 20px; text-align: center;">
+                    <h2>🎨 Welcome to the Teacher Creator Studio</h2>
+                    <p style="color: #9ca3af; margin: 15px auto; max-width: 500px;">Customize and render beautiful AI-generated historical illustrations for your classroom timeline directly from the lab computer server.</p>
+                    <p style="color: var(--amber); font-weight: bold;">Select an event from the left sidebar to start customizing.</p>
+                </div>
 
-        // Load all events from server
-        async function fetchEvents() {
-            try {
-                const res = await fetch("/api/events");
-                allEvents = await res.json();
-                renderEventsList();
-            } catch (err) {
-                console.error("Failed to load events:", err);
-                document.getElementById("eventsListContainer").innerHTML = 
-                    `<div style="color: #ef5350; text-align: center; padding: 20px;">Failed to connect to local server backend. Make sure server.py is running.</div>`;
-            }
-        }
-
-        // Render Sidebar List
-        function renderEventsList() {
-            const container = document.getElementById("eventsListContainer");
-            const searchVal = document.getElementById("eventSearch").value.toLowerCase();
-            const gradeVal = document.getElementById("gradeFilter").value;
-
-            let filtered = allEvents;
-
-            if (gradeVal !== "all") {
-                filtered = filtered.filter(e => e.grade === gradeVal || e.grade.includes(gradeVal.replace("Grade ", "")));
-            }
-
-            if (searchVal.trim() !== "") {
-                filtered = filtered.filter(e => 
-                    e.title.toLowerCase().includes(searchVal) || 
-                    e.subtitle.toLowerCase().includes(searchVal) ||
-                    e.era.toLowerCase().includes(searchVal)
-                );
-            }
-
-            if (filtered.length === 0) {
-                container.innerHTML = `<div style="text-align: center; color: #666; padding: 20px;">No events match your filters</div>`;
-                return;
-            }
-
-            container.innerHTML = filtered.map(event => {
-                const isCustom = event.is_ai_image && event.image !== "images/history_fallback.gif";
-                const badgeClass = isCustom ? "status-custom" : "status-fallback";
-                const badgeText = isCustom ? "CUSTOM GIF" : "CLOCK FALLBACK";
-                const isActive = selectedEvent && selectedEvent.id === event.id ? "active" : "";
-
-                return `
-                    <div class="event-item-btn ${isActive}" onclick="selectEvent(${event.id})">
-                        <div class="event-item-title">${escapeHtml(event.title)}</div>
-                        <div class="event-item-meta">
-                            <span>📅 ${escapeHtml(event.year)}</span>
-                            <span class="status-indicator ${badgeClass}">${badgeText}</span>
+                <!-- Single Event Workspace -->
+                <div id="singleWorkspace" style="display: none;">
+                    
+                    <!-- Progress Stepper -->
+                    <div class="progress-stepper" id="progressStepper">
+                        <div class="step-node" id="stepConnecting">
+                            <div class="step-dot"></div>
+                            <div class="step-label">Connecting</div>
+                        </div>
+                        <div class="step-node" id="stepSending">
+                            <div class="step-dot"></div>
+                            <div class="step-label">Sending Prompt</div>
+                        </div>
+                        <div class="step-node" id="stepGenerating">
+                            <div class="step-dot"></div>
+                            <div class="step-label">Generating</div>
+                        </div>
+                        <div class="step-node" id="stepAnimating">
+                            <div class="step-dot"></div>
+                            <div class="step-label">Animating</div>
+                        </div>
+                        <div class="step-node" id="stepSaving">
+                            <div class="step-dot"></div>
+                            <div class="step-label">Saving GIF</div>
+                        </div>
+                        <div class="step-node" id="stepCompleted">
+                            <div class="step-dot"></div>
+                            <div class="step-label">Completed</div>
                         </div>
                     </div>
-                `;
-            }).join("");
-        }
 
-        function escapeHtml(str) {
-            return String(str || "").replace(/[&<>"']/g, m => ({
-                "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-            }[m]));
-        }
+                    <!-- Progress Bar fill -->
+                    <div class="progress-bar-container" id="progressBarContainer">
+                        <div class="progress-bar-fill" id="progressBarFill"></div>
+                    </div>
 
-        // Handle Event Selection
-        function selectEvent(id) {
-            selectedEvent = allEvents.find(e => e.id === id);
-            
-            // Highlight selected in sidebar
-            renderEventsList();
+                    <div class="creator-grid">
+                        <!-- Left Column: Preview Panel -->
+                        <div class="preview-pane">
+                            <div class="preview-card">
+                                <div class="preview-images-split">
+                                    <div class="image-half">
+                                        <img id="previewStaticImg" src="images/history_fallback.gif" alt="Static Image">
+                                        <div class="half-label">STATIC ORIGINAL</div>
+                                    </div>
+                                    <div class="image-half">
+                                        <img id="previewGifImg" src="images/history_fallback.gif" alt="Generated GIF">
+                                        <div class="half-label">ACTIVE ANIMATED GIF</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="preview-details">
+                                    <div class="title" id="previewTitle">Event Title</div>
+                                    <div class="meta" id="previewSubtitle">Subtitle details</div>
+                                    <div class="pills">
+                                        <span class="pill" id="previewGrade">Grade 6</span>
+                                        <span class="pill" id="previewYear">Year</span>
+                                        <span class="pill" id="previewLocation">Location</span>
+                                    </div>
+                                </div>
+                            </div>
 
-            // Hide welcome, show editor
-            document.getElementById("welcomeView").style.display = "none";
-            document.getElementById("editorContent").style.display = "block";
+                            <div class="action-buttons">
+                                <button class="btn-secondary" id="btnDownloadGif" disabled>
+                                    📥 Download GIF
+                                </button>
+                                <button class="btn-secondary" id="btnReplaceGif" disabled>
+                                    ✅ Apply to Timeline
+                                </button>
+                                <button class="btn-secondary btn-danger" id="btnDeleteGif" disabled>
+                                    🗑️ Reset Fallback
+                                </button>
+                            </div>
+                        </div>
 
-            // Populate preview details
-            document.getElementById("previewTitle").textContent = selectedEvent.title;
-            document.getElementById("previewSubtitle").textContent = selectedEvent.subtitle;
-            document.getElementById("previewGrade").textContent = selectedEvent.grade;
-            document.getElementById("previewYear").textContent = selectedEvent.year;
-            document.getElementById("previewLocation").textContent = `📍 ${selectedEvent.location}`;
-            
-            const previewImg = document.getElementById("currentImagePreview");
-            // Set image with cache-buster to force reload when updated
-            previewImg.src = selectedEvent.image + "?cb=" + new Date().getTime();
-            
-            // Badge
-            const badge = document.getElementById("imageStatusBadge");
-            if (selectedEvent.is_ai_image && selectedEvent.image !== "images/history_fallback.gif") {
-                badge.className = "badge-ai-indicator";
-                badge.textContent = "CUSTOM GIF MOTION";
-            } else {
-                badge.className = "badge-fallback-indicator";
-                badge.textContent = "CLOCK FALLBACK";
-            }
+                        <!-- Right Column: Control Panel -->
+                        <div class="controls-pane">
+                            <div class="form-group">
+                                <label>1. Custom Image Prompt Template</label>
+                                <textarea id="promptInput" class="form-input" placeholder="Enter stable diffusion historical prompt..."></textarea>
+                                <div style="display:flex; justify-content: space-between; font-size:11px; color:#9ca3af;">
+                                    <span>Describe characters, settings, lighting, and painting style.</span>
+                                    <span style="cursor:pointer; color:var(--amber);" id="btnResetPrompt">Restore Template</span>
+                                </div>
+                            </div>
 
-            // Live link
-            document.getElementById("liveLinkBtn").href = `detail.html?id=${selectedEvent.id}`;
+                            <div class="form-group">
+                                <label>2. Image Generator Mode</label>
+                                <div class="mode-grid">
+                                    <div class="mode-card active" data-mode="fooocus" id="modeLocal">
+                                        <span class="icon">💻</span>
+                                        <span class="title">Fooocus Local</span>
+                                        <span class="sub">Lab Server (GPU/CPU)</span>
+                                    </div>
+                                    <div class="mode-card" data-mode="pollinations" id="modeCloud">
+                                        <span class="icon">☁️</span>
+                                        <span class="title">Pollinations</span>
+                                        <span class="sub">Cloud (No GPU needed)</span>
+                                    </div>
+                                    <div class="mode-card" data-mode="procedural" id="modeProcedural">
+                                        <span class="icon">🎴</span>
+                                        <span class="title">Procedural</span>
+                                        <span class="sub">Classic Text Card</span>
+                                    </div>
+                                </div>
+                            </div>
 
-            // Populate default prompt template
-            let cause_text = selectedEvent.cause_effect || "";
-            cause_text = cause_text.replace("Cause & effect details not available.", "").trim();
-            const clean_cause = cause_text.substring(0, 100);
-            
-            const defaultPrompt = `A historical illustration representing ${selectedEvent.title}. ${clean_cause} Era: ${selectedEvent.era}, Year: ${selectedEvent.year}. Dramatic lighting, oil painting illustration style, highly detailed, masterwork.`;
-            document.getElementById("promptInput").value = defaultPrompt;
+                            <div class="form-group">
+                                <label>3. Loop Animation Effect</label>
+                                <select id="animationEffect" class="form-input">
+                                    <option value="auto" selected>✨ Auto-Detect (Match Theme & Content)</option>
+                                    <option value="kenburns">🎬 Ken Burns (Smooth Zoom & Pan)</option>
+                                    <option value="fire">🔥 Campfire Burn (Sinusoidal Warp + Sparks)</option>
+                                    <option value="smoke">🌫️ Smoke Moving (Rising Semi-transparent Puffs)</option>
+                                    <option value="water">🌊 Water Flowing (Downward Ripple Warp)</option>
+                                    <option value="rain">🌧️ Rain Falling (Fast Diagonal Streaks)</option>
+                                    <option value="snow">❄️ Snow Falling (Swaying White Flakes)</option>
+                                    <option value="flag">🚩 Flag Waving (Diagonal Ripples)</option>
+                                    <option value="tree">🌳 Leaves Moving (High-frequency Rustle)</option>
+                                    <option value="clouds">☁️ Clouds Drifting (Horizontal Sky Shift)</option>
+                                    <option value="candle">🕯️ Candle Flickering (Warm Glow Modulation)</option>
+                                    <option value="dust">✨ Floating Dust (Amber Particle Motes)</option>
+                                    <option value="crowd">👥 Crowd Movement (Slight Shifting Bob)</option>
+                                    <option value="ocean">🏄 Ocean Waves (Horizontal Roll Warp)</option>
+                                    <option value="birds">🦅 Birds Flying (Drifting silhouette flock)</option>
+                                    <option value="wind">💨 Gust of Wind (Sway Warp + Blowing streaks)</option>
+                                    <option value="explosion">💥 Detonating Explosion (Expanding fire ring + screen shake)</option>
+                                </select>
+                            </div>
 
-            // Default to smart auto-detection
-            document.getElementById("animationEffect").value = "auto";
+                            <div class="form-group">
+                                <label>4. Compilation Output Console</label>
+                                <div class="terminal-box" id="terminalLogs">
+                                    <div>Console ready. Select generating method and click submit.</div>
+                                </div>
+                            </div>
 
-            // Clear terminal
-            document.getElementById("terminalLogs").innerHTML = `<div>Selected event ${selectedEvent.id}: "${selectedEvent.title}"</div>`;
-        }
+                            <div class="action-buttons" style="margin-top: 10px;">
+                                <button class="btn-secondary" id="btnGenerateImage" style="background: rgba(255, 152, 0, 0.05); border-color: rgba(255, 152, 0, 0.3); color: var(--amber);">
+                                    🖼️ Gen Image Only
+                                </button>
+                                <button class="btn-primary" id="btnGeneratePipeline">
+                                    🎨 Build Animated GIF
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        // Log to terminal box
-        function logToTerminal(message, type = "success") {
-            const box = document.getElementById("terminalLogs");
-            const div = document.createElement("div");
-            if (type === "error") {
-                div.className = "error-log";
-            } else if (type === "info") {
-                div.className = "info-log";
-            }
-            div.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
-            box.appendChild(div);
-            box.scrollTop = box.scrollHeight;
-        }
+                <!-- Batch Mode Workspace -->
+                <div id="batchWorkspace" class="batch-workspace" style="display: none;">
+                    <h2>🚀 Batch Asset Generator</h2>
+                    <p style="color: #9ca3af; margin-top:-15px;">Mass generate customized illustrations and motion GIFs for selected curriculum modules.</p>
+                    
+                    <div class="batch-stats-grid">
+                        <div class="stat-card">
+                            <div class="value" id="batchStatSelected">0</div>
+                            <div class="label">Events Selected</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="value" id="batchStatPending" style="color: var(--amber);">0</div>
+                            <div class="label">Pending Queue</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="value" id="batchStatSuccess" style="color: var(--emerald);">0</div>
+                            <div class="label">Successful</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="value" id="batchStatFailed" style="color: var(--crimson);">0</div>
+                            <div class="label">Failed</div>
+                        </div>
+                    </div>
 
-        // Mode toggling
-        document.querySelectorAll(".mode-option").forEach(opt => {
-            opt.addEventListener("click", () => {
-                document.querySelectorAll(".mode-option").forEach(el => el.classList.remove("active"));
-                opt.classList.add("active");
-                currentMode = opt.dataset.mode;
+                    <!-- Batch Progress -->
+                    <div class="form-group" id="batchProgressGroup" style="display:none;">
+                        <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:13px;">
+                            <span id="batchProgressMessage">Running Batch Process...</span>
+                            <span id="batchProgressPercent">0%</span>
+                        </div>
+                        <div class="progress-bar-container" style="display:block; margin-top:5px; height:12px; border-radius:6px;">
+                            <div class="progress-bar-fill" id="batchProgressBarFill"></div>
+                        </div>
+                    </div>
 
-                const hostGroup = document.getElementById("hostUrlGroup");
-                if (currentMode === "fooocus") {
-                    hostGroup.style.display = "flex";
-                } else {
-                    hostGroup.style.display = "none";
-                }
-                logToTerminal(`Switched mode to ${currentMode.toUpperCase()}`, "info");
+                    <div class="creator-grid">
+                        <div class="controls-pane">
+                            <div class="form-group">
+                                <label>1. Batch Pipeline Mode</label>
+                                <select id="batchPipelineType" class="form-input">
+                                    <option value="batch_gif">🎨 Full Pipeline (Generate Images & Compile GIFs)</option>
+                                    <option value="batch_image">🖼️ Static Images Only</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>2. Image Generator Mode</label>
+                                <div class="mode-grid">
+                                    <div class="mode-card active" data-batchmode="fooocus" id="batchModeLocal">
+                                        <span class="icon">💻</span>
+                                        <span class="title">Fooocus Local</span>
+                                        <span class="sub">Lab Server (GPU/CPU)</span>
+                                    </div>
+                                    <div class="mode-card" data-batchmode="pollinations" id="batchModeCloud">
+                                        <span class="icon">☁️</span>
+                                        <span class="title">Pollinations</span>
+                                        <span class="sub">Cloud (No GPU needed)</span>
+                                    </div>
+                                    <div class="mode-card" data-batchmode="procedural" id="batchModeProcedural">
+                                        <span class="icon">🎴</span>
+                                        <span class="title">Procedural</span>
+                                        <span class="sub">Classic Text Card</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>3. Animation Effect (if GIF selected)</label>
+                                <select id="batchAnimationEffect" class="form-input">
+                                    <option value="auto" selected>✨ Auto-Detect (Match Content)</option>
+                                    <option value="kenburns">🎬 Ken Burns Zoom</option>
+                                    <option value="fire">🔥 Campfire Burn</option>
+                                    <option value="water">🌊 Water Ripple</option>
+                                    <option value="smoke">🌫️ Smoke Movement</option>
+                                </select>
+                            </div>
+
+                            <button class="btn-primary" id="btnStartBatch" style="width: 100%; padding: 15px; font-size:15px;">
+                                🚀 Start Processing Batch Queue
+                            </button>
+                        </div>
+
+                        <div class="controls-pane">
+                            <div class="form-group">
+                                <label>Batch Generation Console</label>
+                                <div class="terminal-box" id="batchConsole" style="height:320px;">
+                                    <div>Queue empty. Select multiple events from the sidebar and click Start.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tab 2: Prompt Library -->
+                <section class="workspace-panel" id="tabPrompts">
+                    <h2>📚 AI Prompt Template Library</h2>
+                    <p style="color: #9ca3af; margin-bottom: 20px;">Edit the default description styles and motion effects used for automatic one-click generations.</p>
+                    
+                    <div style="margin-bottom: 15px; display:flex; gap:10px;">
+                        <input type="text" id="promptLibSearch" class="form-input" placeholder="🔍 Filter prompt templates by title..." style="max-width:400px;">
+                    </div>
+
+                    <div class="prompt-table-container">
+                        <table class="prompt-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 80px;">ID</th>
+                                    <th style="width: 250px;">Historical Event</th>
+                                    <th>Image Prompt Template</th>
+                                    <th style="width: 160px;">Default Effect</th>
+                                    <th style="width: 120px;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="promptLibTableBody">
+                                <!-- Loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Tab 3: Settings -->
+                <section class="workspace-panel" id="tabSettings">
+                    <h2>⚙️ Museum Creator Configurations</h2>
+                    <p style="color: #9ca3af; margin-bottom: 25px;">Adjust local server endpoints, compilation parameters, and output assets pathways.</p>
+                    
+                    <form id="settingsForm" class="settings-grid">
+                        <div class="controls-pane">
+                            <div class="form-group">
+                                <label>Fooocus Local Server API Link</label>
+                                <input type="url" id="settingFooocusUrl" class="form-input" value="http://127.0.0.1:7865">
+                                <span style="font-size:11px; color:#9ca3af;">Specify the local lab IP if hosting on another computer.</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Output Static Images Folder</label>
+                                <input type="text" id="settingImgDir" class="form-input" value="assets/generated/images/">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Output Animated GIFs Folder</label>
+                                <input type="text" id="settingGifDir" class="form-input" value="assets/generated/gifs/">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Standard Render Theme</label>
+                                <select id="settingTheme" class="form-input">
+                                    <option value="dark">Dark Theme (Default)</option>
+                                    <option value="light">Light Theme</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="controls-pane">
+                            <div class="form-group">
+                                <label>Default Render Image Size (Pixels)</label>
+                                <input type="number" id="settingSize" class="form-input" value="512">
+                                <span style="font-size:11px; color:#9ca3af;">Lower resolutions (e.g. 512px) speed up GIF packing dramatically.</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Loop Frame Rate (FPS)</label>
+                                <input type="number" id="settingFps" class="form-input" value="12">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Animation Frame Delay (ms)</label>
+                                <input type="number" id="settingDuration" class="form-input" value="90">
+                            </div>
+
+                            <div class="form-group">
+                                <label>GIF Compression Quality</label>
+                                <input type="number" id="settingQuality" class="form-input" value="85" min="10" max="100">
+                            </div>
+                        </div>
+
+                        <div style="grid-column: span 2; display:flex; justify-content: flex-end; margin-top:10px;">
+                            <button type="submit" class="btn-primary" style="flex-grow:0; padding:12px 30px;">
+                                💾 Save Configurations
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Tab 4: Logs -->
+                <section class="workspace-panel" id="tabLogs">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+                        <div>
+                            <h2>📜 Server Diagnostics & Execution Logs</h2>
+                            <p style="color: #9ca3af; margin-top:2px;">Track API calls, compilation pipelines, execution times, and pipeline errors.</p>
+                        </div>
+                        <button class="btn-secondary" id="btnRefreshLogs">🔄 Refresh Logs</button>
+                    </div>
+
+                    <div class="log-list" id="logsContainer">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <script>
+            // Globals
+            let allEvents = [];
+            let promptLibrary = {};
+            let selectedEvent = null;
+            let currentMode = "fooocus";
+            let batchMode = false;
+            let selectedBatchIds = new Set();
+            let serverOnline = false;
+            let pollingInterval = null;
+            let activeJobId = null;
+
+            // Initialize UI
+            document.addEventListener("DOMContentLoaded", () => {
+                // Tab toggling
+                document.querySelectorAll(".tab-btn").forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        document.querySelectorAll(".tab-btn").forEach(el => el.classList.remove("active"));
+                        document.querySelectorAll(".workspace-panel").forEach(panel => panel.classList.remove("active"));
+                        
+                        btn.classList.add("active");
+                        const target = btn.dataset.target;
+                        document.getElementById(target).classList.add("active");
+
+                        if (target === "tabPrompts") {
+                            loadPromptLibraryUI();
+                        } else if (target === "tabSettings") {
+                            loadSettingsUI();
+                        } else if (target === "tabLogs") {
+                            loadLogsUI();
+                        }
+                    });
+                });
+
+                // Mode Selection
+                document.querySelectorAll("[data-mode]").forEach(card => {
+                    card.addEventListener("click", () => {
+                        document.querySelectorAll("[data-mode]").forEach(el => el.classList.remove("active"));
+                        card.classList.add("active");
+                        currentMode = card.dataset.mode;
+                        logConsole(`Mode set to: ${currentMode.toUpperCase()}`);
+                    });
+                });
+
+                // Batch Mode Selection
+                document.querySelectorAll("[data-batchmode]").forEach(card => {
+                    card.addEventListener("click", () => {
+                        document.querySelectorAll("[data-batchmode]").forEach(el => el.classList.remove("active"));
+                        card.classList.add("active");
+                    });
+                });
+
+                // Sidebar mode buttons
+                document.getElementById("btnSingleMode").addEventListener("click", () => {
+                    batchMode = false;
+                    document.getElementById("btnSingleMode").classList.add("active");
+                    document.getElementById("btnBatchMode").classList.remove("active");
+                    document.getElementById("sidebarContainer").classList.remove("batch-mode");
+                    document.getElementById("btnSelectAll").style.display = "none";
+                    document.getElementById("btnClearAll").style.display = "none";
+                    
+                    document.getElementById("singleWorkspace").style.display = selectedEvent ? "block" : "none";
+                    document.getElementById("welcomeView").style.display = selectedEvent ? "none" : "block";
+                    document.getElementById("batchWorkspace").style.display = "none";
+                    renderEventsList();
+                });
+
+                document.getElementById("btnBatchMode").addEventListener("click", () => {
+                    batchMode = true;
+                    document.getElementById("btnBatchMode").classList.add("active");
+                    document.getElementById("btnSingleMode").classList.remove("active");
+                    document.getElementById("sidebarContainer").classList.add("batch-mode");
+                    document.getElementById("btnSelectAll").style.display = "block";
+                    document.getElementById("btnClearAll").style.display = "block";
+                    
+                    document.getElementById("singleWorkspace").style.display = "none";
+                    document.getElementById("welcomeView").style.display = "none";
+                    document.getElementById("batchWorkspace").style.display = "block";
+                    updateBatchStats();
+                    renderEventsList();
+                });
+
+                // Select All / Clear All
+                document.getElementById("btnSelectAll").addEventListener("click", () => {
+                    const searchVal = document.getElementById("eventSearch").value.toLowerCase();
+                    const gradeVal = document.getElementById("gradeFilter").value;
+                    allEvents.forEach(e => {
+                        let matchesSearch = e.title.toLowerCase().includes(searchVal) || e.subtitle.toLowerCase().includes(searchVal);
+                        let matchesGrade = gradeVal === "all" || e.grade === gradeVal || e.grade.includes(gradeVal.replace("Grade ", ""));
+                        if (matchesSearch && matchesGrade) {
+                            selectedBatchIds.add(e.id);
+                        }
+                    });
+                    updateBatchStats();
+                    renderEventsList();
+                });
+
+                document.getElementById("btnClearAll").addEventListener("click", () => {
+                    selectedBatchIds.clear();
+                    updateBatchStats();
+                    renderEventsList();
+                });
+
+                // Reset prompt
+                document.getElementById("btnResetPrompt").addEventListener("click", () => {
+                    if (selectedEvent && promptLibrary[selectedEvent.id]) {
+                        document.getElementById("promptInput").value = promptLibrary[selectedEvent.id].imagePrompt;
+                        logConsole("Restored original prompt template.");
+                    }
+                });
+
+                // Search & Filter
+                document.getElementById("eventSearch").addEventListener("input", renderEventsList);
+                document.getElementById("gradeFilter").addEventListener("change", renderEventsList);
+                document.getElementById("promptLibSearch").addEventListener("input", loadPromptLibraryUI);
+
+                // Settings Submit
+                document.getElementById("settingsForm").addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    await saveSettings();
+                });
+
+                // Log Refresh
+                document.getElementById("btnRefreshLogs").addEventListener("click", loadLogsUI);
+
+                // Generation Click handlers
+                document.getElementById("btnGenerateImage").addEventListener("click", () => startGeneration("image_only"));
+                document.getElementById("btnGeneratePipeline").addEventListener("click", () => startGeneration("gif_pipeline"));
+                document.getElementById("btnStartBatch").addEventListener("click", startBatchGeneration);
+
+                // Preview panel actions
+                document.getElementById("btnDownloadGif").addEventListener("click", downloadGif);
+                document.getElementById("btnReplaceGif").addEventListener("click", replaceGif);
+                document.getElementById("btnDeleteGif").addEventListener("click", deleteGif);
+
+                // Init load
+                fetchEvents();
+                checkServerHealth();
+                // Polling
+                setInterval(checkServerHealth, 5000);
             });
-        });
 
-        // Trigger Generator
-        document.getElementById("btnGenerate").addEventListener("click", async () => {
-            if (!selectedEvent) return;
-
-            const prompt = document.getElementById("promptInput").value.trim();
-            const host = document.getElementById("hostUrl").value.trim();
-            
-            if (prompt === "") {
-                alert("Please write a prompt.");
-                return;
+            // Fetch events
+            async function fetchEvents() {
+                try {
+                    const res = await fetch("/api/events");
+                    allEvents = await res.json();
+                    
+                    // Fetch prompt library to sync
+                    const pRes = await fetch("/api/prompts");
+                    promptLibrary = await pRes.json();
+                    
+                    renderEventsList();
+                } catch (err) {
+                    console.error("Failed to load timeline events", err);
+                }
             }
 
-            const btn = document.getElementById("btnGenerate");
-            btn.disabled = true;
-            btn.textContent = "⌛ Compiling GIF...";
+            // Render events in sidebar
+            function renderEventsList() {
+                const container = document.getElementById("eventsListContainer");
+                const searchVal = document.getElementById("eventSearch").value.toLowerCase();
+                const gradeVal = document.getElementById("gradeFilter").value;
 
-            logToTerminal(`Starting generation process (Mode: ${currentMode.toUpperCase()})...`, "info");
-            logToTerminal(`Prompt: "${prompt}"`, "info");
-            
-            if (currentMode === "fooocus") {
-                logToTerminal(`Targeting Fooocus Local Server: ${host}`, "info");
+                let filtered = allEvents;
+
+                if (gradeVal !== "all") {
+                    filtered = filtered.filter(e => e.grade === gradeVal || e.grade.includes(gradeVal.replace("Grade ", "")));
+                }
+
+                if (searchVal.trim() !== "") {
+                    filtered = filtered.filter(e => 
+                        e.title.toLowerCase().includes(searchVal) || 
+                        e.subtitle.toLowerCase().includes(searchVal)
+                    );
+                }
+
+                if (filtered.length === 0) {
+                    container.innerHTML = `<div style="text-align: center; color: #666; padding: 20px;">No matching historical events</div>`;
+                    return;
+                }
+
+                container.innerHTML = filtered.map(e => {
+                    const isCustom = e.is_ai_image && e.image !== "images/history_fallback.gif";
+                    const badgeClass = isCustom ? "status-custom" : "status-fallback";
+                    const badgeText = isCustom ? "CUSTOM GIF" : "FALLBACK";
+                    const isActive = !batchMode && selectedEvent && selectedEvent.id === e.id ? "active" : "";
+                    const isChecked = selectedBatchIds.has(e.id) ? "checked" : "";
+
+                    return `
+                        <div class="event-item-btn ${isActive}" onclick="handleEventClick(event, ${e.id})">
+                            <div class="checkbox-container">
+                                <input type="checkbox" ${isChecked} onchange="toggleBatchSelect(event, ${e.id})">
+                            </div>
+                            <div class="event-details-text">
+                                <div class="event-item-title">${escapeHtml(e.title)}</div>
+                                <div class="event-item-meta">
+                                    <span>📅 ${escapeHtml(e.year)}</span>
+                                    <span class="status-indicator ${badgeClass}">${badgeText}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join("");
             }
 
-            try {
-                const response = await fetch("/api/generate", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        id: selectedEvent.id,
-                        prompt: prompt,
-                        mode: currentMode,
-                        host: host,
-                        effect: document.getElementById("animationEffect").value
-                    })
-                });
-
-                const data = await response.json();
+            function handleEventClick(event, id) {
+                // Ignore click if checking box
+                if (event.target.tagName === 'INPUT' || batchMode) return;
                 
-                if (response.ok && data.success) {
-                    const detectedStr = {
-                        "fire": "🔥 Campfire Burn (Flickering & Sparks)",
-                        "wheel": "🌀 Spinning Wheel (Rotation)",
-                        "kenburns": "🎬 Ken Burns (Zoom & Pan)"
-                    }[data.detected_effect] || data.detected_effect;
-                    
-                    logToTerminal(`GIF generation successful! File saved to: ${data.image_path}`);
-                    logToTerminal(`Auto-detected animation effect applied: ${detectedStr}`, "info");
-                    logToTerminal(`Timeline JSON database has been updated automatically.`);
-                    
-                    // Reload event details
-                    selectedEvent.image = data.image_path;
-                    selectedEvent.is_ai_image = true;
-                    
-                    // Force refresh preview image
-                    const previewImg = document.getElementById("currentImagePreview");
-                    previewImg.src = data.image_path + "?cb=" + new Date().getTime();
-                    
-                    const badge = document.getElementById("imageStatusBadge");
-                    badge.className = "badge-ai-indicator";
-                    badge.textContent = "CUSTOM GIF MOTION";
+                selectedEvent = allEvents.find(e => e.id === id);
+                document.getElementById("welcomeView").style.display = "none";
+                document.getElementById("singleWorkspace").style.display = "block";
+                
+                // Active class
+                document.querySelectorAll(".event-item-btn").forEach(el => el.classList.remove("active"));
+                event.currentTarget.classList.add("active");
 
-                    // Update local event object in array
-                    const idx = allEvents.findIndex(e => e.id === selectedEvent.id);
-                    if (idx !== -1) {
-                        allEvents[idx].image = data.image_path;
-                        allEvents[idx].is_ai_image = true;
-                    }
-                    renderEventsList();
-                } else {
-                    logToTerminal(`Error: ${data.message || 'Unknown server error'}`, "error");
+                // Preview panel
+                document.getElementById("previewTitle").textContent = selectedEvent.title;
+                document.getElementById("previewSubtitle").textContent = selectedEvent.subtitle;
+                document.getElementById("previewGrade").textContent = selectedEvent.grade;
+                document.getElementById("previewYear").textContent = selectedEvent.year;
+                document.getElementById("previewLocation").textContent = `📍 ${selectedEvent.location}`;
+
+                // Set image previews
+                const cb = new Date().getTime();
+                document.getElementById("previewGifImg").src = selectedEvent.image + "?cb=" + cb;
+                
+                // Static image preview is the raw.png equivalent
+                let rawPath = selectedEvent.image;
+                if (selectedEvent.image.endsWith(".gif") && selectedEvent.image.includes("generated")) {
+                    rawPath = selectedEvent.image.replace(".gif", ".png").replace("gifs", "images");
                 }
-            } catch (err) {
-                console.error("Generator request failed:", err);
-                logToTerminal(`Connection Error: Server did not respond. Check backend server logs.`, "error");
-            } finally {
-                btn.disabled = false;
-                btn.textContent = "🎨 Generate Animated GIF";
+                document.getElementById("previewStaticImg").src = rawPath + "?cb=" + cb;
+
+                // Load template
+                const promptData = promptLibrary[id] || { imagePrompt: `A historical illustration representing ${selectedEvent.title}. Era: ${selectedEvent.era}, Year: ${selectedEvent.year}.`, animation: "auto" };
+                document.getElementById("promptInput").value = promptData.imagePrompt;
+                document.getElementById("animationEffect").value = promptData.animation;
+
+                // Enable/disable preview actions
+                const isGenerated = selectedEvent.is_ai_image && selectedEvent.image !== "images/history_fallback.gif";
+                document.getElementById("btnDownloadGif").disabled = !isGenerated;
+                document.getElementById("btnReplaceGif").disabled = !isGenerated;
+                document.getElementById("btnDeleteGif").disabled = !isGenerated;
+
+                // Clear console
+                document.getElementById("terminalLogs").innerHTML = `<div>Event ${id} loaded. Ready to build assets.</div>`;
             }
-        });
 
-        // Reset to clock fallback
-        document.getElementById("btnReset").addEventListener("click", async () => {
-            if (!selectedEvent) return;
-
-            if (!confirm(`Are you sure you want to reset "${selectedEvent.title}" back to the default clock fallback? This will remove the custom GIF.`)) {
-                return;
+            function toggleBatchSelect(event, id) {
+                if (event.target.checked) {
+                    selectedBatchIds.add(id);
+                } else {
+                    selectedBatchIds.delete(id);
+                }
+                updateBatchStats();
             }
 
-            const btn = document.getElementById("btnReset");
-            btn.disabled = true;
+            function updateBatchStats() {
+                const count = selectedBatchIds.size;
+                document.getElementById("batchStatSelected").textContent = count;
+                document.getElementById("batchStatPending").textContent = count;
+                document.getElementById("batchStatSuccess").textContent = 0;
+                document.getElementById("batchStatFailed").textContent = 0;
+            }
 
-            logToTerminal(`Resetting event ${selectedEvent.id} back to fallback...`, "info");
+            // Check health
+            async function checkServerHealth() {
+                try {
+                    const res = await fetch("/health");
+                    const data = await res.json();
+                    serverOnline = data.fooocus_status === "online";
+                    
+                    const dot = document.getElementById("headerStatusDot");
+                    const text = document.getElementById("headerStatusText");
+                    const alert = document.getElementById("offlineAlert");
 
-            try {
-                const response = await fetch("/api/reset_event", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ id: selectedEvent.id })
+                    if (serverOnline) {
+                        dot.className = "status-dot status-online";
+                        text.textContent = `Fooocus Server: Online (${data.gpu.gpu_device})`;
+                        alert.style.display = "none";
+                    } else {
+                        dot.className = "status-dot status-offline";
+                        text.textContent = "Fooocus Server: Offline";
+                        if (currentMode === "fooocus") {
+                            alert.style.display = "flex";
+                        }
+                    }
+                } catch (err) {
+                    serverOnline = false;
+                    document.getElementById("headerStatusDot").className = "status-dot status-offline";
+                    document.getElementById("headerStatusText").textContent = "Server Offline";
+                }
+            }
+
+            // Single Event Generation
+            async function startGeneration(jobType) {
+                if (!selectedEvent) return;
+
+                const promptText = document.getElementById("promptInput").value.trim();
+                const effect = document.getElementById("animationEffect").value;
+
+                if (!promptText) {
+                    alert("Please write or template a prompt.");
+                    return;
+                }
+
+                // Check offline alert
+                if (currentMode === "fooocus" && !serverOnline) {
+                    alert("❌ AI Image Server is not running. Please ask the lab administrator to start the Fooocus server or switch to Cloud Mode.");
+                    return;
+                }
+
+                // Disable generate buttons
+                toggleGenerateButtons(true);
+                resetStepper();
+
+                const endpoint = jobType === "image_only" ? "/generate-image" : "/generate-gif";
+                const body = {
+                    event_id: selectedEvent.id,
+                    prompt: promptText,
+                    mode: currentMode
+                };
+                if (jobType === "gif_pipeline") {
+                    body.effect = effect;
+                }
+
+                try {
+                    logConsole(`Submitting pipeline request for ${selectedEvent.title}...`, "info");
+                    updateStep("stepConnecting", "active");
+
+                    const res = await fetch(endpoint, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(body)
+                    });
+
+                    if (!res.ok) {
+                        const errData = await res.json();
+                        throw new Error(errData.detail || "Server error.");
+                    }
+
+                    const data = await res.json();
+                    activeJobId = data.job_id;
+                    
+                    // Start polling
+                    pollJobStatus(activeJobId);
+                } catch (err) {
+                    logConsole(`Pipeline Error: ${err.message}`, "error");
+                    toggleGenerateButtons(false);
+                    updateStep("stepConnecting", "active"); // Highlight failure/reset
+                }
+            }
+
+            async function pollJobStatus(jobId) {
+                const interval = setInterval(async () => {
+                    try {
+                        const res = await fetch(`/status?job_id=${jobId}`);
+                        const job = await res.json();
+
+                        // Progress fills
+                        document.getElementById("progressBarContainer").style.display = "block";
+                        document.getElementById("progressBarFill").style.width = `${job.progress}%`;
+
+                        logConsole(job.message, "info");
+
+                        // Update Stepper steps
+                        updateStepperUI(job.status);
+
+                        if (job.status === "completed") {
+                            clearInterval(interval);
+                            logConsole(`Asset compiled successfully!`, "success");
+                            
+                            // Re-fetch timeline events to sync
+                            await fetchEvents();
+                            
+                            // Force reload preview
+                            const activeEventObj = allEvents.find(e => e.id === selectedEvent.id);
+                            if (activeEventObj) {
+                                selectedEvent = activeEventObj;
+                            }
+                            
+                            const cb = new Date().getTime();
+                            document.getElementById("previewGifImg").src = selectedEvent.image + "?cb=" + cb;
+                            let rawPath = selectedEvent.image.replace(".gif", ".png").replace("gifs", "images");
+                            document.getElementById("previewStaticImg").src = rawPath + "?cb=" + cb;
+
+                            document.getElementById("btnDownloadGif").disabled = false;
+                            document.getElementById("btnReplaceGif").disabled = false;
+                            document.getElementById("btnDeleteGif").disabled = false;
+
+                            toggleGenerateButtons(false);
+                            setTimeout(() => {
+                                document.getElementById("progressBarContainer").style.display = "none";
+                            }, 3000);
+                        } else if (job.status === "failed") {
+                            clearInterval(interval);
+                            logConsole(`Generation Failed: ${job.error || job.message}`, "error");
+                            toggleGenerateButtons(false);
+                            document.getElementById("progressBarContainer").style.display = "none";
+                        }
+                    } catch (err) {
+                        clearInterval(interval);
+                        logConsole(`Failed checking job status.`, "error");
+                        toggleGenerateButtons(false);
+                    }
+                }, 1000);
+            }
+
+            // Batch generation
+            async function startBatchGeneration() {
+                if (selectedBatchIds.size === 0) {
+                    alert("Please select at least one event from the sidebar.");
+                    return;
+                }
+
+                const pipelineType = document.getElementById("batchPipelineType").value;
+                const batchModeVal = document.querySelector(".mode-card.active").dataset.batchmode || "fooocus";
+                const effect = document.getElementById("batchAnimationEffect").value;
+
+                if (batchModeVal === "fooocus" && !serverOnline) {
+                    alert("❌ Fooocus Server Offline. Please start the server or select Cloud mode.");
+                    return;
+                }
+
+                document.getElementById("btnStartBatch").disabled = true;
+                document.getElementById("batchProgressGroup").style.display = "block";
+                document.getElementById("batchConsole").innerHTML = `<div>Starting batch generation queue for ${selectedBatchIds.size} events...</div>`;
+
+                try {
+                    const res = await fetch("/batch", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            event_ids: Array.from(selectedBatchIds),
+                            job_type: pipelineType,
+                            mode: batchModeVal,
+                            effect: effect
+                        })
+                    });
+
+                    if (!res.ok) {
+                        const err = await res.json();
+                        throw new Error(err.detail || "Batch request failed.");
+                    }
+
+                    const data = await res.json();
+                    pollBatchStatus(data.job_id);
+                } catch (err) {
+                    document.getElementById("batchConsole").innerHTML += `<div class="error-log">Error: ${err.message}</div>`;
+                    document.getElementById("btnStartBatch").disabled = false;
+                }
+            }
+
+            async function pollBatchStatus(jobId) {
+                const interval = setInterval(async () => {
+                    try {
+                        const res = await fetch(`/status?job_id=${jobId}`);
+                        const job = await res.json();
+
+                        document.getElementById("batchProgressBarFill").style.width = `${job.progress}%`;
+                        document.getElementById("batchProgressPercent").textContent = `${Math.round(job.progress)}%`;
+                        document.getElementById("batchProgressMessage").textContent = job.message;
+
+                        // Count states
+                        let successCount = 0;
+                        let failedCount = 0;
+                        job.results.forEach(r => {
+                            if (r.success) successCount++;
+                            else failedCount++;
+                        });
+
+                        document.getElementById("batchStatSuccess").textContent = successCount;
+                        document.getElementById("batchStatFailed").textContent = failedCount;
+                        document.getElementById("batchStatPending").textContent = job.event_ids.length - (successCount + failedCount);
+
+                        // Console logger
+                        const consoleDiv = document.getElementById("batchConsole");
+                        consoleDiv.innerHTML = `<div>Progress Status: ${job.message}</div>`;
+                        job.results.forEach(r => {
+                            const ev = allEvents.find(e => e.id === r.event_id) || { title: `Event ${r.event_id}` };
+                            if (r.success) {
+                                consoleDiv.innerHTML += `<div style="color:var(--emerald);">✔️ Event ${r.event_id}: ${ev.title} compiled successfully.</div>`;
+                            } else {
+                                consoleDiv.innerHTML += `<div class="error-log">❌ Event ${r.event_id}: ${ev.title} failed: ${r.error}</div>`;
+                            }
+                        });
+                        consoleDiv.scrollTop = consoleDiv.scrollHeight;
+
+                        if (job.status === "completed" || job.status === "failed") {
+                            clearInterval(interval);
+                            document.getElementById("btnStartBatch").disabled = false;
+                            await fetchEvents();
+                        }
+                    } catch (err) {
+                        clearInterval(interval);
+                        document.getElementById("btnStartBatch").disabled = false;
+                    }
+                }, 1500);
+            }
+
+            // Preview pane actions
+            function downloadGif() {
+                if (!selectedEvent || !selectedEvent.image) return;
+                const link = document.createElement("a");
+                link.href = selectedEvent.image;
+                link.download = `${selectedEvent.title.replace(/\s+/g, "_")}.gif`;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+
+            async function replaceGif() {
+                // Active already, refresh timeline DB
+                alert("This asset is already applied and active in your CBSE Museum Timeline!");
+            }
+
+            async function deleteGif() {
+                if (!selectedEvent) return;
+                if (!confirm(`Are you sure you want to delete the customized GIF for "${selectedEvent.title}" and revert to the fallback?`)) {
+                    return;
+                }
+
+                try {
+                    const res = await fetch(`/api/delete_gif?event_id=${selectedEvent.id}`, { method: "DELETE" });
+                    if (res.ok) {
+                        logConsole("Asset deleted. Event reverted to fallback.");
+                        await fetchEvents();
+                        
+                        // Force refresh preview
+                        selectedEvent = allEvents.find(e => e.id === selectedEvent.id);
+                        handleEventClick({ currentTarget: document.querySelector(".event-item-btn.active") }, selectedEvent.id);
+                    }
+                } catch (err) {
+                    logConsole(`Failed to delete: ${err.message}`, "error");
+                }
+            }
+
+            // Prompt library Tab Loading
+            async function loadPromptLibraryUI() {
+                const search = document.getElementById("promptLibSearch").value.toLowerCase();
+                const tbody = document.getElementById("promptLibTableBody");
+                tbody.innerHTML = "<tr><td colspan='5'>Loading Prompt Library...</td></tr>";
+
+                try {
+                    const pRes = await fetch("/api/prompts");
+                    promptLibrary = await pRes.json();
+
+                    tbody.innerHTML = "";
+                    Object.keys(promptLibrary).forEach(id => {
+                        const p = promptLibrary[id];
+                        if (search && !p.title.toLowerCase().includes(search) && !p.imagePrompt.toLowerCase().includes(search)) {
+                            return;
+                        }
+
+                        tbody.innerHTML += `
+                            <tr>
+                                <td>${id}</td>
+                                <td style="font-weight:bold; color:var(--amber);">${escapeHtml(p.title)}</td>
+                                <td>
+                                    <textarea class="form-input" style="height:60px; font-size:12px;" id="libPrompt_${id}">${escapeHtml(p.imagePrompt)}</textarea>
+                                </td>
+                                <td>
+                                    <select class="form-input" style="font-size:12px; padding:6px 10px;" id="libEffect_${id}">
+                                        <option value="auto" ${p.animation === 'auto' ? 'selected' : ''}>✨ Auto-Detect</option>
+                                        <option value="kenburns" ${p.animation === 'kenburns' ? 'selected' : ''}>🎬 Ken Burns</option>
+                                        <option value="fire" ${p.animation === 'fire' ? 'selected' : ''}>🔥 Fire</option>
+                                        <option value="water" ${p.animation === 'water' ? 'selected' : ''}>🌊 Water</option>
+                                        <option value="smoke" ${p.animation === 'smoke' ? 'selected' : ''}>🌫️ Smoke</option>
+                                        <option value="rain" ${p.animation === 'rain' ? 'selected' : ''}>🌧️ Rain</option>
+                                        <option value="snow" ${p.animation === 'snow' ? 'selected' : ''}>❄️ Snow</option>
+                                        <option value="flag" ${p.animation === 'flag' ? 'selected' : ''}>🚩 Flag</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn-primary" style="padding:6px 12px; font-size:12px; border-radius:8px;" onclick="savePromptTemplate(${id})">Save</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                } catch (err) {
+                    tbody.innerHTML = "<tr><td colspan='5'>Error loading Prompt library.</td></tr>";
+                }
+            }
+
+            async function savePromptTemplate(id) {
+                const promptVal = document.getElementById(`libPrompt_${id}`).value.trim();
+                const effectVal = document.getElementById(`libEffect_${id}`).value;
+
+                try {
+                    const res = await fetch("/api/prompts", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            event_id: id,
+                            imagePrompt: promptVal,
+                            animation: effectVal
+                        })
+                    });
+                    if (res.ok) {
+                        alert("Template saved successfully!");
+                        // Sync
+                        promptLibrary[id].imagePrompt = promptVal;
+                        promptLibrary[id].animation = effectVal;
+                    }
+                } catch (err) {
+                    alert("Failed to save template.");
+                }
+            }
+
+            // Settings loading
+            async function loadSettingsUI() {
+                try {
+                    const res = await fetch("/api/settings");
+                    const config = await res.json();
+
+                    document.getElementById("settingFooocusUrl").value = config.fooocus_url;
+                    document.getElementById("settingImgDir").value = config.output_image_dir;
+                    document.getElementById("settingGifDir").value = config.output_gif_dir;
+                    document.getElementById("settingSize").value = config.image_size;
+                    document.getElementById("settingFps").value = config.fps;
+                    document.getElementById("settingDuration").value = config.animation_duration;
+                    document.getElementById("settingQuality").value = config.gif_quality;
+                    document.getElementById("settingTheme").value = config.theme;
+                } catch (err) {
+                    console.error("Failed to load settings");
+                }
+            }
+
+            async function saveSettings() {
+                const body = {
+                    fooocus_url: document.getElementById("settingFooocusUrl").value.trim(),
+                    output_image_dir: document.getElementById("settingImgDir").value.trim(),
+                    output_gif_dir: document.getElementById("settingGifDir").value.trim(),
+                    image_size: parseInt(document.getElementById("settingSize").value),
+                    animation_duration: parseInt(document.getElementById("settingDuration").value),
+                    fps: parseInt(document.getElementById("settingFps").value),
+                    gif_quality: parseInt(document.getElementById("settingQuality").value),
+                    theme: document.getElementById("settingTheme").value
+                };
+
+                try {
+                    const res = await fetch("/api/settings", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(body)
+                    });
+                    if (res.ok) {
+                        alert("Configurations saved successfully!");
+                        checkServerHealth(); // health sync
+                    }
+                } catch (err) {
+                    alert("Failed to save configurations.");
+                }
+            }
+
+            // Load Logs
+            async function loadLogsUI() {
+                const container = document.getElementById("logsContainer");
+                container.innerHTML = "<div>Loading diagnostic logs...</div>";
+
+                try {
+                    const res = await fetch("/history");
+                    const data = await res.json();
+
+                    container.innerHTML = "";
+                    if (data.logs.length === 0) {
+                        container.innerHTML = "<div style='color:#71717a;'>No diagnostic logs logged yet.</div>";
+                        return;
+                    }
+
+                    // Reverse logs to show newest first
+                    const reversed = [...data.logs].reverse();
+                    reversed.forEach(log => {
+                        const date = new Date(log.timestamp).toLocaleTimeString();
+                        let detailsStr = JSON.stringify(log.details);
+                        container.innerHTML += `
+                            <div class="log-item ${log.event_type}">
+                                <span>[${date}] <strong>${log.event_type.toUpperCase()}</strong>: ${detailsStr}</span>
+                            </div>
+                        `;
+                    });
+                } catch (err) {
+                    container.innerHTML = "<div class='error-log'>Failed to fetch diagnostic logs.</div>";
+                }
+            }
+
+            // Stepper Helpers
+            function resetStepper() {
+                document.querySelectorAll(".step-node").forEach(node => {
+                    node.className = "step-node";
                 });
-
-                const data = await response.json();
-                if (response.ok && data.success) {
-                    logToTerminal(`Event reset successful.`);
-                    
-                    selectedEvent.image = "images/history_fallback.gif";
-                    selectedEvent.is_ai_image = false;
-                    
-                    const previewImg = document.getElementById("currentImagePreview");
-                    previewImg.src = "images/history_fallback.gif";
-                    
-                    const badge = document.getElementById("imageStatusBadge");
-                    badge.className = "badge-fallback-indicator";
-                    badge.textContent = "CLOCK FALLBACK";
-
-                    const idx = allEvents.findIndex(e => e.id === selectedEvent.id);
-                    if (idx !== -1) {
-                        allEvents[idx].image = "images/history_fallback.gif";
-                        allEvents[idx].is_ai_image = false;
-                    }
-                    renderEventsList();
-                } else {
-                    logToTerminal(`Error: ${data.message || 'Unknown error during reset'}`, "error");
-                }
-            } catch (err) {
-                logToTerminal(`Connection Error: Reset request failed.`, "error");
-            } finally {
-                btn.disabled = false;
             }
-        });
 
-        // Setup search/filter events
-        document.getElementById("eventSearch").addEventListener("input", renderEventsList);
-        document.getElementById("gradeFilter").addEventListener("change", renderEventsList);
+            function updateStepperUI(status) {
+                resetStepper();
+                
+                // Map status to steps
+                const states = {
+                    "connecting": ["stepConnecting"],
+                    "sending_prompt": ["stepConnecting", "stepSending"],
+                    "generating_image": ["stepConnecting", "stepSending", "stepGenerating"],
+                    "creating_animation": ["stepConnecting", "stepSending", "stepGenerating", "stepAnimating"],
+                    "saving_gif": ["stepConnecting", "stepSending", "stepGenerating", "stepAnimating", "stepSaving"],
+                    "completed": ["stepConnecting", "stepSending", "stepGenerating", "stepAnimating", "stepSaving", "stepCompleted"]
+                };
 
-        // Fetch initial list
-        fetchEvents();
-    </script>
+                const activeSteps = states[status] || [];
+                activeSteps.forEach((stepId, idx) => {
+                    const node = document.getElementById(stepId);
+                    if (node) {
+                        if (idx === activeSteps.length - 1 && status !== "completed") {
+                            node.className = "step-node active";
+                        } else {
+                            node.className = "step-node completed";
+                        }
+                    }
+                });
+            }
+
+            function updateStep(stepId, stateClass) {
+                const node = document.getElementById(stepId);
+                if (node) node.className = `step-node ${stateClass}`;
+            }
+
+            function toggleGenerateButtons(disabled) {
+                document.getElementById("btnGenerateImage").disabled = disabled;
+                document.getElementById("btnGeneratePipeline").disabled = disabled;
+                if (disabled) {
+                    document.getElementById("btnGeneratePipeline").textContent = "⌛ Building...";
+                } else {
+                    document.getElementById("btnGeneratePipeline").textContent = "🎨 Build Animated GIF";
+                }
+            }
+
+            // Console helper
+            function logConsole(msg, type = "success") {
+                const box = document.getElementById("terminalLogs");
+                const div = document.createElement("div");
+                if (type === "error") div.className = "error-log";
+                else if (type === "info") div.className = "info-log";
+                
+                div.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+                box.appendChild(div);
+                box.scrollTop = box.scrollHeight;
+            }
+
+            function escapeHtml(str) {
+                return String(str || "").replace(/[&<>"']/g, m => ({
+                    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+                }[m]));
+            }
+        </script>
 </body>
 </html>
